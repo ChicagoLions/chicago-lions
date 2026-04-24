@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chicago Lions Cricket Club</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lion-gold: #D4A017;
+    --lion-deep: #1A1200;
+    --lion-red: #C0392B;
+    --lion-dark: #0D0D0D;
+    --lion-gray: #1E1E1E;
+    --lion-mid: #2D2D2D;
+    --lion-muted: #888;
+    --lion-light: #F5F0E8;
+    --lion-accent: #FFD700;
+    --lion-green: #27AE60;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--lion-dark); color: var(--lion-light); font-family: 'Barlow', sans-serif; overflow-x: hidden; }
+
+  nav { background: rgba(13,13,13,0.97); border-bottom: 2px solid var(--lion-gold); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; height: 60px; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+  .nav-brand { font-family: 'Black Han Sans', sans-serif; font-size: 1.3rem; color: var(--lion-gold); letter-spacing: 2px; }
+  .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+  .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; cursor: pointer; }
+  .nav-links a:hover { color: var(--lion-gold); }
+  .btn-login { background: var(--lion-gold); color: var(--lion-deep); padding: 7px 18px; border-radius: 3px; font-weight: 700; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; border: none; transition: background 0.2s; }
+  .btn-login:hover { background: var(--lion-accent); }
+
+  section { display: none; }
+  section.active { display: block; }
+
+  .hero { min-height: 92vh; background: linear-gradient(135deg, #0D0D0D 0%, #1a0f00 50%, #0D0D0D 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; overflow: hidden; padding: 4rem 2rem; }
+  .hero-bg-pattern { position: absolute; inset: 0; opacity: 0.04; background-image: repeating-linear-gradient(45deg, #D4A017 0, #D4A017 1px, transparent 0, transparent 50%); background-size: 30px 30px; }
+  .hero-badge { background: var(--lion-gold); color: var(--lion-deep); padding: 4px 16px; border-radius: 2px; font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1.5rem; display: inline-block; }
+  .hero h1 { font-family: 'Black Han Sans', sans-serif; font-size: clamp(3.5rem, 10vw, 7rem); color: #fff; line-height: 0.9; letter-spacing: -2px; margin-bottom: 0.5rem; }
+  .hero h1 span { color: var(--lion-gold); }
+  .hero-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; color: var(--lion-muted); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 2.5rem; font-weight: 600; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem; }
+  .btn-primary { background: var(--lion-gold); color: var(--lion-deep); padding: 14px 32px; border-radius: 3px; font-weight: 700; font-size: 1rem; letter-spacing: 1px; cursor: pointer; border: none; text-transform: uppercase; transition: all 0.2s; }
+  .btn-primary:hover { background: var(--lion-accent); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--lion-gold); padding: 14px 32px; border-radius: 3px; font-weight: 700; font-size: 1rem; letter-spacing: 1px; cursor: pointer; border: 2px solid var(--lion-gold); text-transform: uppercase; transition: all 0.2s; }
+  .btn-outline:hover { background: var(--lion-gold); color: var(--lion-deep); }
+  .hero-stats { display: flex; gap: 3rem; flex-wrap: wrap; justify-content: center; }
+  .hero-stat .num { font-family: 'Black Han Sans', sans-serif; font-size: 2.5rem; color: var(--lion-gold); }
+  .hero-stat .lbl { font-size: 0.75rem; color: var(--lion-muted); text-transform: uppercase; letter-spacing: 2px; }
+
+  .ticker-bar { background: var(--lion-red); padding: 8px 0; overflow: hidden; border-bottom: 1px solid #a93226; }
+  .ticker-inner { display: flex; gap: 4rem; white-space: nowrap; animation: ticker 30s linear infinite; }
+  .ticker-item { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; color: #fff; }
+  .ticker-item .score { color: var(--lion-accent); }
+  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  .section-wrap { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+  .section-head { text-align: center; margin-bottom: 3rem; }
+  .section-label { font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; color: var(--lion-gold); font-weight: 700; margin-bottom: 0.5rem; }
+  .section-title { font-family: 'Black Han Sans', sans-serif; font-size: 2.8rem; color: #fff; }
+  .section-sub { font-size: 1rem; color: var(--lion-muted); margin-top: 0.5rem; }
+
+  .live-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--lion-red); color: #fff; padding: 4px 12px; border-radius: 2px; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; }
+  .live-dot { width: 7px; height: 7px; background: #fff; border-radius: 50%; animation: pulse 1s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .match-card { background: var(--lion-gray); border: 1px solid #333; border-radius: 6px; padding: 1.5rem; margin-bottom: 1.5rem; position: relative; overflow: hidden; }
+  .match-card.live { border-color: var(--lion-red); }
+  .match-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--lion-gold); }
+  .match-card.live::before { background: var(--lion-red); }
+  .match-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 1.2rem; }
+  .match-venue { font-size: 0.78rem; color: var(--lion-muted); letter-spacing: 1px; text-transform: uppercase; }
+  .match-teams { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem; }
+  .team-block { display: flex; flex-direction: column; }
+  .team-block.away { text-align: right; }
+  .team-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 700; letter-spacing: 1px; color: #fff; }
+  .team-score { font-family: 'Black Han Sans', sans-serif; font-size: 2rem; color: var(--lion-gold); }
+  .team-overs { font-size: 0.78rem; color: var(--lion-muted); }
+  .vs { font-family: 'Black Han Sans', sans-serif; font-size: 1.2rem; color: var(--lion-muted); }
+  .match-status { font-size: 0.8rem; color: var(--lion-green); font-weight: 600; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #333; }
+
+  .players-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; }
+  .player-card { background: var(--lion-gray); border: 1px solid #333; border-radius: 6px; overflow: hidden; transition: transform 0.2s, border-color 0.2s; cursor: pointer; }
+  .player-card:hover { transform: translateY(-4px); border-color: var(--lion-gold); }
+  .player-avatar { width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; font-size: 4rem; background: linear-gradient(135deg, #1a0f00, #2d1f00); position: relative; }
+  .player-number { position: absolute; top: 10px; right: 12px; font-family: 'Black Han Sans', sans-serif; font-size: 2rem; color: rgba(212,160,23,0.3); }
+  .player-info { padding: 1rem; }
+  .player-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 700; color: #fff; }
+  .player-role { font-size: 0.78rem; color: var(--lion-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem; }
+  .player-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; }
+  .pstat { text-align: center; }
+  .pstat .val { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 700; color: #fff; }
+  .pstat .key { font-size: 0.65rem; color: var(--lion-muted); text-transform: uppercase; letter-spacing: 1px; }
+  .player-captain { position: absolute; top: 10px; left: 10px; background: var(--lion-gold); color: var(--lion-deep); font-size: 0.65rem; font-weight: 700; padding: 2px 8px; border-radius: 2px; letter-spacing: 1px; }
+
+  .login-wrap { max-width: 440px; margin: 0 auto; padding: 5rem 2rem; }
+  .login-card { background: var(--lion-gray); border: 1px solid #444; border-radius: 8px; padding: 2.5rem; }
+  .login-logo { text-align: center; margin-bottom: 2rem; }
+  .login-logo .icon { font-size: 3rem; }
+  .login-logo h2 { font-family: 'Black Han Sans', sans-serif; font-size: 1.8rem; color: var(--lion-gold); letter-spacing: 2px; }
+  .login-logo p { font-size: 0.85rem; color: var(--lion-muted); }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--lion-muted); margin-bottom: 0.5rem; }
+  .form-group input, .form-group select { width: 100%; background: var(--lion-mid); border: 1px solid #444; border-radius: 4px; padding: 12px 14px; color: #fff; font-size: 0.95rem; font-family: 'Barlow', sans-serif; outline: none; transition: border-color 0.2s; }
+  .form-group input:focus, .form-group select:focus { border-color: var(--lion-gold); }
+  .btn-full { width: 100%; background: var(--lion-gold); color: var(--lion-deep); padding: 14px; border-radius: 4px; font-weight: 700; font-size: 1rem; letter-spacing: 1px; cursor: pointer; border: none; text-transform: uppercase; margin-top: 0.5rem; transition: background 0.2s; }
+  .btn-full:hover { background: var(--lion-accent); }
+  .login-switch { text-align: center; margin-top: 1.2rem; font-size: 0.85rem; color: var(--lion-muted); }
+  .login-switch span { color: var(--lion-gold); cursor: pointer; font-weight: 600; }
+  .role-tabs { display: flex; gap: 0; margin-bottom: 1.5rem; border: 1px solid #444; border-radius: 4px; overflow: hidden; }
+  .role-tab { flex: 1; padding: 8px; text-align: center; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; color: var(--lion-muted); background: transparent; border: none; transition: all 0.2s; }
+  .role-tab.active { background: var(--lion-gold); color: var(--lion-deep); }
+
+  .dashboard { background: var(--lion-dark); min-height: 100vh; }
+  .dash-header { background: var(--lion-gray); border-bottom: 1px solid #333; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+  .dash-welcome h2 { font-family: 'Black Han Sans', sans-serif; font-size: 1.5rem; color: var(--lion-gold); }
+  .dash-welcome p { font-size: 0.85rem; color: var(--lion-muted); }
+  .dash-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1rem; padding: 2rem; max-width: 1200px; margin: 0 auto; }
+  .dash-card { background: var(--lion-gray); border: 1px solid #333; border-radius: 6px; padding: 1.2rem; }
+  .dash-card.wide { grid-column: span 2; }
+  .dash-card.full { grid-column: span 4; }
+  .dash-stat-label { font-size: 0.72rem; color: var(--lion-muted); text-transform: uppercase; letter-spacing: 1px; }
+  .dash-stat-val { font-family: 'Black Han Sans', sans-serif; font-size: 2.2rem; color: var(--lion-gold); }
+  .dash-stat-sub { font-size: 0.8rem; color: var(--lion-green); }
+  .feed-item { padding: 1rem 0; border-bottom: 1px solid #333; display: flex; gap: 12px; align-items: flex-start; }
+  .feed-item:last-child { border-bottom: none; }
+  .feed-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--lion-mid); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .feed-content p { font-size: 0.9rem; color: #ddd; line-height: 1.5; }
+  .feed-time { font-size: 0.72rem; color: var(--lion-muted); margin-top: 4px; }
+  .badge-gold { background: var(--lion-gold); color: var(--lion-deep); padding: 2px 10px; border-radius: 2px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .upcoming-match { padding: 0.8rem 0; border-bottom: 1px solid #333; display: flex; justify-content: space-between; align-items: center; }
+  .upcoming-match:last-child { border-bottom: none; }
+  .um-vs { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; color: #fff; }
+  .um-date { font-size: 0.78rem; color: var(--lion-muted); }
+
+  .social-grid { display: grid; grid-template-columns: 1fr 320px; gap: 2rem; max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
+  .post-card { background: var(--lion-gray); border: 1px solid #333; border-radius: 6px; padding: 1.2rem; margin-bottom: 1.2rem; }
+  .post-header { display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem; }
+  .post-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--lion-mid); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+  .post-author { font-weight: 600; font-size: 0.9rem; color: #fff; }
+  .post-role { font-size: 0.72rem; color: var(--lion-gold); text-transform: uppercase; letter-spacing: 1px; }
+  .post-time { font-size: 0.72rem; color: var(--lion-muted); margin-left: auto; }
+  .post-body { font-size: 0.92rem; color: #ccc; line-height: 1.6; margin-bottom: 1rem; }
+  .post-img { width: 100%; height: 140px; background: linear-gradient(135deg, #1a0f00, #2d2d00); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 3rem; margin-bottom: 1rem; }
+  .post-actions { display: flex; gap: 1.5rem; }
+  .post-action { background: none; border: none; color: var(--lion-muted); font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: color 0.2s; font-family: 'Barlow', sans-serif; }
+  .post-action:hover { color: var(--lion-gold); }
+  .sidebar-card { background: var(--lion-gray); border: 1px solid #333; border-radius: 6px; padding: 1.2rem; margin-bottom: 1.2rem; }
+  .sidebar-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--lion-gold); margin-bottom: 1rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+  .hashtag { display: inline-block; background: var(--lion-mid); color: var(--lion-gold); padding: 4px 10px; border-radius: 3px; font-size: 0.78rem; margin: 3px; cursor: pointer; font-weight: 600; }
+  .sponsor-logo { background: #fff; border-radius: 4px; padding: 8px 16px; margin-bottom: 8px; text-align: center; color: #333; font-weight: 700; font-size: 0.9rem; }
+  .leaderboard-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px solid #2a2a2a; font-size: 0.85rem; }
+  .leaderboard-row:last-child { border-bottom: none; }
+  .lr-rank { color: var(--lion-muted); width: 20px; font-weight: 700; }
+  .lr-name { flex: 1; color: #fff; }
+  .lr-val { color: var(--lion-gold); font-weight: 700; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; }
+
+  .brand-hero { background: linear-gradient(135deg, #1a0f00, #0d0d0d); padding: 5rem 2rem; text-align: center; border-bottom: 2px solid var(--lion-gold); }
+  .brand-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 3rem auto; padding: 0 2rem; }
+  .brand-card { background: var(--lion-gray); border: 1px solid #333; border-radius: 6px; padding: 1.5rem; }
+  .brand-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--lion-gold); margin-bottom: 0.8rem; }
+  .brand-card p { font-size: 0.87rem; color: var(--lion-muted); line-height: 1.6; margin-bottom: 1rem; }
+  .color-swatches { display: flex; gap: 8px; }
+  .swatch { width: 40px; height: 40px; border-radius: 4px; }
+  .font-demo { font-family: 'Black Han Sans', sans-serif; font-size: 1.5rem; color: #fff; letter-spacing: 1px; }
+  .contact-form { max-width: 600px; margin: 0 auto; padding: 3rem 2rem; }
+
+  @media (max-width: 700px) {
+    .dash-grid { grid-template-columns: 1fr 1fr; }
+    .dash-card.full { grid-column: span 2; }
+    .dash-card.wide { grid-column: span 2; }
+    .social-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 3rem; }
+    .hero-stats { gap: 1.5rem; }
+  }
+
+  .btn-sm { background: transparent; border: 1px solid var(--lion-gold); color: var(--lion-gold); padding: 6px 14px; border-radius: 3px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.2s; }
+  .btn-sm:hover { background: var(--lion-gold); color: var(--lion-deep); }
+  .logout-btn { background: transparent; border: 1px solid #555; color: #aaa; padding: 6px 14px; border-radius: 3px; font-size: 0.78rem; cursor: pointer; }
+  .logout-btn:hover { border-color: var(--lion-red); color: var(--lion-red); }
+  .notification-dot { width: 8px; height: 8px; background: var(--lion-red); border-radius: 50%; display: inline-block; margin-left: 4px; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo" onclick="showSection('home')">
+    <span style="font-size:1.8rem;">🦁</span>
+    <span class="nav-brand">CHICAGO LIONS</span>
+  </div>
+  <div class="nav-links">
+    <a onclick="showSection('scores')">Scores</a>
+    <a onclick="showSection('squad')">Squad</a>
+    <a onclick="showSection('feed')">Community</a>
+    <a onclick="showSection('brand')">Brand</a>
+    <button class="btn-login" id="navAuthBtn" onclick="showSection('login')">Player Login</button>
+  </div>
+</nav>
+
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <span class="ticker-item">🦁 CHICAGO LIONS vs DETROIT THUNDER — LIONS: <span class="score">187/4 (32.2)</span> | LIVE</span>
+    <span class="ticker-item">🏏 UPCOMING: Chicago Lions vs Milwaukee Hawks — Sat May 3 · Noon</span>
+    <span class="ticker-item">⚡ A. SHARMA 78* off 62 balls — On Fire!</span>
+    <span class="ticker-item">📊 Season Stats: W8 L3 NR1 | 3rd in GLCA Standing</span>
+    <span class="ticker-item">🦁 CHICAGO LIONS vs DETROIT THUNDER — LIONS: <span class="score">187/4 (32.2)</span> | LIVE</span>
+    <span class="ticker-item">🏏 UPCOMING: Chicago Lions vs Milwaukee Hawks — Sat May 3 · Noon</span>
+    <span class="ticker-item">⚡ A. SHARMA 78* off 62 balls — On Fire!</span>
+    <span class="ticker-item">📊 Season Stats: W8 L3 NR1 | 3rd in GLCA Standing</span>
+  </div>
+</div>
+
+<section id="home" class="active">
+  <div class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-badge">Est. 2018 · Chicago, Illinois</div>
+    <h1>CHICAGO<br><span>LIONS</span><br>CC</h1>
+    <p class="hero-tagline">Fear the Roar · Play with Pride</p>
+    <div class="hero-ctas">
+      <button class="btn-primary" onclick="showSection('login')">Join the Pride</button>
+      <button class="btn-outline" onclick="showSection('scores')">Live Scores</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">28</div><div class="lbl">Players</div></div>
+      <div class="hero-stat"><div class="num">8</div><div class="lbl">Wins</div></div>
+      <div class="hero-stat"><div class="num">6</div><div class="lbl">Seasons</div></div>
+      <div class="hero-stat"><div class="num">3rd</div><div class="lbl">GLCA Rank</div></div>
+    </div>
+  </div>
+  <div style="background:#111; padding:4rem 2rem;">
+    <div class="section-head"><div class="section-label">Why Chicago Lions</div><div class="section-title">Built for Champions</div></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;max-width:900px;margin:0 auto;">
+      <div style="background:var(--lion-gray);border:1px solid #333;border-radius:6px;padding:1.5rem;border-top:3px solid var(--lion-gold);"><div style="font-size:1.8rem;margin-bottom:0.8rem;">🏏</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:0.5rem;">COMPETE</div><div style="font-size:0.85rem;color:var(--lion-muted);line-height:1.6;">GLCA League matches, tournaments, and friendly series across the Midwest.</div></div>
+      <div style="background:var(--lion-gray);border:1px solid #333;border-radius:6px;padding:1.5rem;border-top:3px solid var(--lion-gold);"><div style="font-size:1.8rem;margin-bottom:0.8rem;">📊</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:0.5rem;">TRACK STATS</div><div style="font-size:0.85rem;color:var(--lion-muted);line-height:1.6;">Your batting avg, wickets, economy rate — all in your personal player dashboard.</div></div>
+      <div style="background:var(--lion-gray);border:1px solid #333;border-radius:6px;padding:1.5rem;border-top:3px solid var(--lion-gold);"><div style="font-size:1.8rem;margin-bottom:0.8rem;">🤝</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:0.5rem;">BUILD BONDS</div><div style="font-size:0.85rem;color:var(--lion-muted);line-height:1.6;">Team feed, shoutouts, training schedules — stay connected with your Lions family.</div></div>
+      <div style="background:var(--lion-gray);border:1px solid #333;border-radius:6px;padding:1.5rem;border-top:3px solid var(--lion-gold);"><div style="font-size:1.8rem;margin-bottom:0.8rem;">🏆</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:0.5rem;">GET SPONSORED</div><div style="font-size:0.85rem;color:var(--lion-muted);line-height:1.6;">Brand partnerships, kit sponsorships, and local business collaborations.</div></div>
+    </div>
+  </div>
+  <div style="background:var(--lion-gold);padding:3rem 2rem;text-align:center;">
+    <div style="font-family:'Black Han Sans',sans-serif;font-size:2rem;color:var(--lion-deep);margin-bottom:0.8rem;">READY TO ROAR?</div>
+    <p style="color:#5a3a00;margin-bottom:1.5rem;">Join Chicago's finest cricket club. Applications open for the 2025 season.</p>
+    <button class="btn-primary" style="background:var(--lion-deep);color:var(--lion-gold);" onclick="showSection('login')">Apply Now — It's Free</button>
+  </div>
+</section>
+
+<section id="scores">
+  <div class="section-wrap">
+    <div class="section-head"><div class="section-label">Real-time Updates</div><div class="section-title">Scores & Fixtures</div><div class="section-sub">Live scores · All GLCA matches</div></div>
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+      <div class="live-badge"><div class="live-dot"></div> LIVE NOW</div>
+      <div style="font-size:0.8rem;color:var(--lion-muted);">Last updated 2 mins ago</div>
+      <button class="btn-sm" style="margin-left:auto;" onclick="refreshScores()">↺ Refresh</button>
+    </div>
+    <div class="match-card live">
+      <div class="match-meta"><span class="live-badge"><div class="live-dot"></div> LIVE</span><span class="match-venue">Montrose Beach Cricket Ground · T20 League · GLCA Div 1</span></div>
+      <div class="match-teams">
+        <div class="team-block"><div class="team-name">🦁 CHICAGO LIONS</div><div class="team-score" id="liveScore">187/4</div><div class="team-overs">32.2 overs</div></div>
+        <div style="text-align:center;"><div class="vs">VS</div></div>
+        <div class="team-block away"><div class="team-name">DETROIT THUNDER ⚡</div><div class="team-score">162/7</div><div class="team-overs">29.0 overs</div></div>
+      </div>
+      <div class="match-status">🏏 A. Sharma 78* (62) · K. Patel 34* (28) · Need: 26 to win off 45 balls</div>
+    </div>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--lion-muted);margin:2rem 0 1rem;">Recent Results</div>
+    <div class="match-card">
+      <div class="match-meta"><span style="background:var(--lion-green);color:#fff;padding:2px 10px;border-radius:2px;font-size:0.7rem;font-weight:700;">WON</span><span class="match-venue">Apr 19 · GLCA · Chicago</span></div>
+      <div class="match-teams">
+        <div class="team-block"><div class="team-name">🦁 CHICAGO LIONS</div><div class="team-score" style="color:var(--lion-green);">203/6</div><div class="team-overs">20 overs</div></div>
+        <div style="text-align:center;"><div class="vs">VS</div></div>
+        <div class="team-block away"><div class="team-name">INDIANA KNIGHTS 🛡</div><div class="team-score">198/8</div><div class="team-overs">20 overs</div></div>
+      </div>
+      <div class="match-status" style="color:var(--lion-green);">Lions won by 5 runs · MOM: R. Singh (4/22)</div>
+    </div>
+    <div class="match-card">
+      <div class="match-meta"><span style="background:var(--lion-red);color:#fff;padding:2px 10px;border-radius:2px;font-size:0.7rem;font-weight:700;">LOST</span><span class="match-venue">Apr 12 · GLCA · Milwaukee</span></div>
+      <div class="match-teams">
+        <div class="team-block"><div class="team-name">🦁 CHICAGO LIONS</div><div class="team-score" style="color:var(--lion-red);">145/10</div><div class="team-overs">18.3 overs</div></div>
+        <div style="text-align:center;"><div class="vs">VS</div></div>
+        <div class="team-block away"><div class="team-name">MILWAUKEE HAWKS 🦅</div><div class="team-score">146/4</div><div class="team-overs">16.1 overs</div></div>
+      </div>
+      <div class="match-status" style="color:var(--lion-red);">Lost by 6 wickets</div>
+    </div>
+    <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--lion-muted);margin:2rem 0 1rem;">Upcoming Fixtures</div>
+    <div class="match-card">
+      <div class="match-meta"><span style="background:var(--lion-mid);color:#ccc;padding:2px 10px;border-radius:2px;font-size:0.7rem;font-weight:700;">SAT MAY 3</span><span class="match-venue">Noon · Montrose Beach · GLCA Div 1</span></div>
+      <div class="match-teams">
+        <div class="team-block"><div class="team-name">🦁 CHICAGO LIONS</div></div>
+        <div style="text-align:center;"><div class="vs">VS</div></div>
+        <div class="team-block away"><div class="team-name">MILWAUKEE HAWKS 🦅</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="squad">
+  <div class="section-wrap">
+    <div class="section-head"><div class="section-label">The Roster</div><div class="section-title">Meet the Lions</div><div class="section-sub">2025 Season Squad · 28 Players</div></div>
+    <div class="players-grid">
+      <div class="player-card"><div class="player-avatar">🦁<div class="player-captain">C</div><div class="player-number">17</div></div><div class="player-info"><div class="player-name">Arjun Sharma</div><div class="player-role">Captain · All-Rounder</div><div class="player-stats"><div class="pstat"><div class="val">612</div><div class="key">Runs</div></div><div class="pstat"><div class="val">38.2</div><div class="key">Avg</div></div><div class="pstat"><div class="val">14</div><div class="key">Wkts</div></div></div></div></div>
+      <div class="player-card"><div class="player-avatar">🏏<div class="player-number">3</div></div><div class="player-info"><div class="player-name">Rahul Singh</div><div class="player-role">Fast Bowler</div><div class="player-stats"><div class="pstat"><div class="val">34</div><div class="key">Wkts</div></div><div class="pstat"><div class="val">7.2</div><div class="key">Econ</div></div><div class="pstat"><div class="val">5/22</div><div class="key">Best</div></div></div></div></div>
+      <div class="player-card"><div class="player-avatar">🧤<div class="player-number">1</div></div><div class="player-info"><div class="player-name">Kunal Patel</div><div class="player-role">Wicketkeeper · Batter</div><div class="player-stats"><div class="pstat"><div class="val">445</div><div class="key">Runs</div></div><div class="pstat"><div class="val">22</div><div class="key">St</div></div><div class="pstat"><div class="val">8</div><div class="key">Ct</div></div></div></div></div>
+      <div class="player-card"><div class="player-avatar">⚡<div class="player-number">9</div></div><div class="player-info"><div class="player-name">Dev Kumar</div><div class="player-role">Opening Batter</div><div class="player-stats"><div class="pstat"><div class="val">534</div><div class="key">Runs</div></div><div class="pstat"><div class="val">41.1</div><div class="key">Avg</div></div><div class="pstat"><div class="val">2</div><div class="key">50s</div></div></div></div></div>
+      <div class="player-card"><div class="player-avatar">🎯<div class="player-number">22</div></div><div class="player-info"><div class="player-name">Naveen Reddy</div><div class="player-role">Spin Bowler</div><div class="player-stats"><div class="pstat"><div class="val">28</div><div class="key">Wkts</div></div><div class="pstat"><div class="val">5.8</div><div class="key">Econ</div></div><div class="pstat"><div class="val">4/18</div><div class="key">Best</div></div></div></div></div>
+      <div class="player-card"><div class="player-avatar">🦅<div class="player-number">11</div></div><div class="player-info"><div class="player-name">Vikram Nair</div><div class="player-role">All-Rounder · VC</div><div class="player-stats"><div class="pstat"><div class="val">389</div><div class="key">Runs</div></div><div class="pstat"><div class="val">18</div><div class="key">Wkts</div></div><div class="pstat"><div class="val">6</div><div class="key">50s</div></div></div></div></div>
+    </div>
+    <div style="text-align:center;margin-top:2rem;"><button class="btn-outline" onclick="showSection('login')">Join the Squad →</button></div>
+  </div>
+</section>
+
+<section id="feed">
+  <div style="padding:3rem 2rem 1rem;text-align:center;"><div class="section-label">Team Community</div><div class="section-title">Lions Den Feed</div></div>
+  <div class="social-grid">
+    <div>
+      <div class="post-card">
+        <div class="post-header"><div class="post-avatar">🦁</div><div><div class="post-author">Chicago Lions CC <span class="badge-gold">OFFICIAL</span></div><div class="post-role">Team Account</div></div><div class="post-time">2h ago</div></div>
+        <div class="post-body">🔥 MATCHDAY! We're live at Montrose Beach. Lions at 187/4. Sharma is COOKING — 78 not out! <span style="color:var(--lion-gold);">#ChicagoLions #FearTheRoar</span></div>
+        <div class="post-img">🏟️</div>
+        <div class="post-actions"><button class="post-action" onclick="likePost(this)">❤️ <span>142</span></button><button class="post-action">💬 38</button><button class="post-action">↗ Share</button></div>
+      </div>
+      <div class="post-card">
+        <div class="post-header"><div class="post-avatar">⚡</div><div><div class="post-author">Arjun Sharma</div><div class="post-role">Captain · All-Rounder</div></div><div class="post-time">5h ago</div></div>
+        <div class="post-body">Pre-match nets done. Big thanks to @NavreenReddy for the spin practice. Let's go Lions! 💪 <span style="color:var(--lion-gold);">#LionsPride</span></div>
+        <div class="post-actions"><button class="post-action" onclick="likePost(this)">❤️ <span>87</span></button><button class="post-action">💬 14</button><button class="post-action">↗ Share</button></div>
+      </div>
+      <div class="post-card" style="border-style:dashed;">
+        <div style="font-size:0.8rem;color:var(--lion-muted);margin-bottom:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Post to Team Feed</div>
+        <textarea id="postInput" placeholder="Share a match moment, training update, or shoutout..." style="width:100%;background:var(--lion-mid);border:1px solid #444;border-radius:4px;padding:10px;color:#fff;font-family:'Barlow',sans-serif;font-size:0.9rem;resize:none;height:80px;outline:none;"></textarea>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.8rem;"><div style="display:flex;gap:0.5rem;"><button class="btn-sm">📷 Photo</button><button class="btn-sm">#️⃣ Tag</button></div><button class="btn-sm" onclick="addPost()">Post →</button></div>
+      </div>
+    </div>
+    <div>
+      <div class="sidebar-card"><h3>🔥 Trending</h3><span class="hashtag">#FearTheRoar</span><span class="hashtag">#ChicagoLions</span><span class="hashtag">#GLCA2025</span><span class="hashtag">#LionsCricket</span><span class="hashtag">#CricketChicago</span></div>
+      <div class="sidebar-card">
+        <h3>📊 Top Performers</h3>
+        <div style="font-size:0.72rem;color:var(--lion-muted);margin-bottom:0.5rem;">BATTING</div>
+        <div class="leaderboard-row"><div class="lr-rank">1</div><div class="lr-name">A. Sharma</div><div class="lr-val">612</div></div>
+        <div class="leaderboard-row"><div class="lr-rank">2</div><div class="lr-name">D. Kumar</div><div class="lr-val">534</div></div>
+        <div class="leaderboard-row"><div class="lr-rank">3</div><div class="lr-name">V. Nair</div><div class="lr-val">389</div></div>
+        <div style="font-size:0.72rem;color:var(--lion-muted);margin:1rem 0 0.5rem;">WICKETS</div>
+        <div class="leaderboard-row"><div class="lr-rank">1</div><div class="lr-name">R. Singh</div><div class="lr-val">34</div></div>
+        <div class="leaderboard-row"><div class="lr-rank">2</div><div class="lr-name">N. Reddy</div><div class="lr-val">28</div></div>
+      </div>
+      <div class="sidebar-card"><h3>🤝 Partners</h3><div class="sponsor-logo">🏪 Patel Brothers</div><div class="sponsor-logo">⚕️ Chicago Sports Medicine</div><button class="btn-sm" style="width:100%;margin-top:0.5rem;" onclick="showSection('brand')">Become a Partner →</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="brand">
+  <div class="brand-hero">
+    <div class="section-label">Brand & Partnerships</div>
+    <div class="section-title" style="margin-bottom:1rem;">Partner with the Lions</div>
+    <p style="color:var(--lion-muted);max-width:550px;margin:0 auto 2rem;">Reach Chicago's South Asian community and cricket fans across the Midwest.</p>
+    <button class="btn-primary" onclick="document.getElementById('contactForm').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+  </div>
+  <div class="brand-grid">
+    <div class="brand-card"><h3>🎨 Brand Colors</h3><p>The official Chicago Lions color palette.</p><div class="color-swatches"><div class="swatch" style="background:#D4A017;"></div><div class="swatch" style="background:#0D0D0D;border:1px solid #444;"></div><div class="swatch" style="background:#C0392B;"></div><div class="swatch" style="background:#F5F0E8;"></div></div></div>
+    <div class="brand-card"><h3>🔤 Typography</h3><p>Display: Black Han Sans. Body: Barlow.</p><div class="font-demo">CHICAGO LIONS</div></div>
+    <div class="brand-card"><h3>📱 Kit Sponsorship</h3><p>Logo on match jerseys, training kits and caps. Reach 28 players + 500+ fans.</p><button class="btn-sm" onclick="document.getElementById('contactForm').scrollIntoView({behavior:'smooth'})">Enquire →</button></div>
+    <div class="brand-card"><h3>🌐 Digital Reach</h3><p>Social media shoutouts, website banners, match-day announcements and team feed posts.</p><button class="btn-sm" onclick="document.getElementById('contactForm').scrollIntoView({behavior:'smooth'})">Enquire →</button></div>
+    <div class="brand-card"><h3>🏟️ Match Day</h3><p>Pop-up booths, banner ads at ground, announcements and giveaways.</p><button class="btn-sm" onclick="document.getElementById('contactForm').scrollIntoView({behavior:'smooth'})">Enquire →</button></div>
+    <div class="brand-card"><h3>🎥 Content Collab</h3><p>Highlight reels, player features, behind-the-scenes co-branded content.</p><button class="btn-sm" onclick="document.getElementById('contactForm').scrollIntoView({behavior:'smooth'})">Enquire →</button></div>
+  </div>
+  <div class="contact-form" id="contactForm">
+    <div style="text-align:center;margin-bottom:2rem;"><div class="section-label">Get in Touch</div><div class="section-title" style="font-size:2rem;">Partner Enquiry</div></div>
+    <div style="background:var(--lion-gray);border:1px solid #333;border-radius:8px;padding:2rem;">
+      <div class="form-group"><label>Name / Company</label><input type="text" placeholder="Your name or business name"></div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="hello@company.com"></div>
+      <div class="form-group"><label>Partnership Interest</label><select style="background:var(--lion-mid);border:1px solid #444;border-radius:4px;padding:12px;color:#fff;width:100%;font-family:'Barlow',sans-serif;outline:none;"><option>Kit / Jersey Sponsorship</option><option>Digital / Social Media</option><option>Match Day Activation</option><option>Content Collaboration</option></select></div>
+      <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your brand..." style="width:100%;background:var(--lion-mid);border:1px solid #444;border-radius:4px;padding:12px;color:#fff;font-family:'Barlow',sans-serif;font-size:0.9rem;resize:none;height:100px;outline:none;"></textarea></div>
+      <button class="btn-full" onclick="alert('Message sent! The Lions team will be in touch within 48 hours. 🦁')">Send Enquiry</button>
+    </div>
+  </div>
+</section>
+
+<section id="login">
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-logo"><div class="icon">🦁</div><h2>LIONS PORTAL</h2><p>Player & Staff Login</p></div>
+      <div id="loginForm">
+        <div class="role-tabs"><button class="role-tab active" onclick="setRole(this)">Player</button><button class="role-tab" onclick="setRole(this)">Staff</button><button class="role-tab" onclick="setRole(this)">Fan</button></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Password</label><input type="password" placeholder="••••••••"></div>
+        <button class="btn-full" onclick="doLogin()">Login to Lions Portal</button>
+        <div class="login-switch">New to the Lions? <span onclick="toggleSignup()">Register here →</span></div>
+      </div>
+      <div id="signupForm" style="display:none;">
+        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Phone</label><input type="tel" placeholder="+1 (312) 000-0000"></div>
+        <div class="form-group"><label>Role</label><select style="background:var(--lion-mid);border:1px solid #444;border-radius:4px;padding:12px;color:#fff;width:100%;font-family:'Barlow',sans-serif;outline:none;"><option>Player — Batter</option><option>Player — Bowler</option><option>Player — All-Rounder</option><option>Player — Wicketkeeper</option><option>Coach / Staff</option><option>Fan / Supporter</option></select></div>
+        <div class="form-group"><label>Password</label><input type="password" placeholder="Create password"></div>
+        <button class="btn-full" onclick="doLogin()">Create My Lions Account</button>
+        <div class="login-switch">Already a Lion? <span onclick="toggleSignup()">Login →</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="dashboard">
+  <div class="dashboard">
+    <div class="dash-header">
+      <div class="dash-welcome"><h2>🦁 Welcome back, Arjun</h2><p>Chicago Lions · Captain · All-Rounder · #17</p></div>
+      <div style="display:flex;gap:0.8rem;align-items:center;">
+        <button class="btn-sm" onclick="showSection('feed')">Team Feed <span class="notification-dot"></span></button>
+        <button class="logout-btn" onclick="doLogout()">Logout</button>
+      </div>
+    </div>
+    <div class="dash-grid">
+      <div class="dash-card"><div class="dash-stat-label">Season Runs</div><div class="dash-stat-val">612</div><div class="dash-stat-sub">↑ 12% vs last season</div></div>
+      <div class="dash-card"><div class="dash-stat-label">Batting Avg</div><div class="dash-stat-val">38.2</div><div class="dash-stat-sub">Career best: 51.4</div></div>
+      <div class="dash-card"><div class="dash-stat-label">Wickets</div><div class="dash-stat-val">14</div><div class="dash-stat-sub">Econ: 7.4</div></div>
+      <div class="dash-card"><div class="dash-stat-label">Matches</div><div class="dash-stat-val">11</div><div class="dash-stat-sub">W8 · L3</div></div>
+      <div class="dash-card wide">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lion-gold);margin-bottom:1rem;">Upcoming Matches</div>
+        <div class="upcoming-match"><div><div class="um-vs">vs Milwaukee Hawks</div><div class="um-date">Sat May 3 · Noon · Montrose Beach</div></div><span class="badge-gold">LEAGUE</span></div>
+        <div class="upcoming-match"><div><div class="um-vs">vs St. Louis Kings</div><div class="um-date">Sun May 11 · 10 AM · Pilsen Park</div></div><span style="background:#333;color:#aaa;padding:2px 10px;border-radius:2px;font-size:0.7rem;font-weight:700;">FRIENDLY</span></div>
+      </div>
+      <div class="dash-card wide">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lion-gold);margin-bottom:1rem;">Team Feed <span class="notification-dot"></span></div>
+        <div class="feed-item"><div class="feed-avatar">🏆</div><div class="feed-content"><p><strong>Official:</strong> MATCHDAY is here! Let's go Lions!</p><div class="feed-time">2 hours ago</div></div></div>
+        <div class="feed-item"><div class="feed-avatar">⚡</div><div class="feed-content"><p><strong>Rahul Singh:</strong> Nets were fire 🔥 Ready to bowl! #FearTheRoar</p><div class="feed-time">8 hours ago</div></div></div>
+        <button class="btn-sm" style="margin-top:0.8rem;" onclick="showSection('feed')">View Full Feed →</button>
+      </div>
+      <div class="dash-card full">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lion-gold);margin-bottom:1rem;">Recent Performances</div>
+        <table style="width:100%;font-size:0.85rem;border-collapse:collapse;">
+          <thead><tr style="border-bottom:1px solid #444;color:var(--lion-muted);font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;"><th style="text-align:left;padding:0.5rem 0.8rem;">Date</th><th style="text-align:left;padding:0.5rem 0.8rem;">Opposition</th><th style="text-align:left;padding:0.5rem 0.8rem;">Runs</th><th style="text-align:left;padding:0.5rem 0.8rem;">Balls</th><th style="text-align:left;padding:0.5rem 0.8rem;">Wkts</th><th style="text-align:left;padding:0.5rem 0.8rem;">Result</th></tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #2a2a2a;"><td style="padding:0.6rem 0.8rem;color:#aaa;">Apr 19</td><td style="padding:0.6rem 0.8rem;color:#fff;">Indiana Knights</td><td style="padding:0.6rem 0.8rem;color:var(--lion-gold);font-weight:700;">54*</td><td style="padding:0.6rem 0.8rem;color:#aaa;">41</td><td style="padding:0.6rem 0.8rem;color:#aaa;">2/34</td><td style="padding:0.6rem 0.8rem;"><span style="color:var(--lion-green);">WON</span></td></tr>
+            <tr style="border-bottom:1px solid #2a2a2a;"><td style="padding:0.6rem 0.8rem;color:#aaa;">Apr 12</td><td style="padding:0.6rem 0.8rem;color:#fff;">Milwaukee Hawks</td><td style="padding:0.6rem 0.8rem;color:var(--lion-gold);font-weight:700;">22</td><td style="padding:0.6rem 0.8rem;color:#aaa;">19</td><td style="padding:0.6rem 0.8rem;color:#aaa;">1/28</td><td style="padding:0.6rem 0.8rem;"><span style="color:var(--lion-red);">LOST</span></td></tr>
+            <tr><td style="padding:0.6rem 0.8rem;color:#aaa;">Apr 5</td><td style="padding:0.6rem 0.8rem;color:#fff;">Detroit Thunder</td><td style="padding:0.6rem 0.8rem;color:var(--lion-gold);font-weight:700;">88</td><td style="padding:0.6rem 0.8rem;color:#aaa;">67</td><td style="padding:0.6rem 0.8rem;color:#aaa;">3/21</td><td style="padding:0.6rem 0.8rem;"><span style="color:var(--lion-green);">WON</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    const el = document.getElementById(id);
+    if (el) { el.classList.add('active'); window.scrollTo(0,0); }
+  }
+  function setRole(btn) {
+    document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  function toggleSignup() {
+    const lf = document.getElementById('loginForm');
+    const sf = document.getElementById('signupForm');
+    const show = lf.style.display !== 'none';
+    lf.style.display = show ? 'none' : 'block';
+    sf.style.display = show ? 'block' : 'none';
+  }
+  function doLogin() {
+    const btn = document.getElementById('navAuthBtn');
+    btn.textContent = 'My Dashboard';
+    btn.onclick = function() { showSection('dashboard'); };
+    showSection('dashboard');
+  }
+  function doLogout() {
+    const btn = document.getElementById('navAuthBtn');
+    btn.textContent = 'Player Login';
+    btn.onclick = function() { showSection('login'); };
+    showSection('home');
+  }
+  function likePost(btn) {
+    const countEl = btn.querySelector('span');
+    countEl.textContent = parseInt(countEl.textContent) + 1;
+    btn.style.color = '#e74c3c';
+  }
+  function addPost() {
+    const input = document.getElementById('postInput');
+    const text = input.value.trim();
+    if (!text) return;
+    const feed = document.querySelector('.social-grid > div');
+    const card = document.createElement('div');
+    card.className = 'post-card';
+    card.innerHTML = '<div class="post-header"><div class="post-avatar">🦁</div><div><div class="post-author">You <span class="badge-gold">PLAYER</span></div><div class="post-role">Chicago Lions</div></div><div class="post-time">Just now</div></div><div class="post-body">' + text + '</div><div class="post-actions"><button class="post-action" onclick="likePost(this)">❤️ <span>0</span></button><button class="post-action">💬 0</button></div>';
+    feed.insertBefore(card, feed.children[0]);
+    input.value = '';
+  }
+  function refreshScores() {
+    const el = document.getElementById('liveScore');
+    if (el) { const r = parseInt(el.textContent) + Math.floor(Math.random()*6); el.textContent = r + '/4'; }
+  }
+  setInterval(() => {
+    const el = document.getElementById('liveScore');
+    if (el) { const r = parseInt(el.textContent.split('/')[0] || 187) + Math.floor(Math.random()*3); el.textContent = r + '/4'; }
+  }, 45000);
+</script>
+</body>
+</html>
