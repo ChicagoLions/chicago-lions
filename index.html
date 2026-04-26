@@ -3,1272 +3,306 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Chicago Lions Cricket Club — Official Website. 2026 Chicago Cup T20. Fear the Roar.">
-<title>Chicago Lions CC — Fear the Roar</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="description" content="Chicago Lions Cricket Club — Official Team Website. 2026 Chicago Cup T20. Fear the Roar.">
+<title>Chicago Lions Cricket Club</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --gold:       #C9A84C;
-  --gold-bright:#F0C040;
-  --gold-dim:   #7A5E1A;
-  --black:      #08060A;
-  --dark:       #0D0A10;
-  --panel:      #141018;
-  --card:       #1A1520;
-  --card2:      #211B2A;
-  --white:      #F5F2EA;
-  --muted:      #6B6275;
-  --red:        #B02020;
-  --green:      #1E7A45;
-  --border:     rgba(201,168,76,0.12);
-  --border-hi:  rgba(201,168,76,0.35);
+  --gold:#C9A84C; --gold-bright:#F0C040; --gold-dim:#7A5E1A;
+  --black:#08060A; --dark:#0D0A10; --panel:#141018; --card:#1A1520; --card2:#211B2A;
+  --white:#F5F2EA; --muted:#6B6275; --red:#B02020; --green:#1E7A45;
+  --border:rgba(201,168,76,0.12); --border-hi:rgba(201,168,76,0.35);
 }
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; font-size:16px; }
-body {
-  background: var(--black);
-  color: var(--white);
-  font-family: 'Barlow', sans-serif;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-::-webkit-scrollbar { width:3px; }
-::-webkit-scrollbar-track { background: var(--black); }
-::-webkit-scrollbar-thumb { background: var(--gold-dim); }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--black);}
+::-webkit-scrollbar-thumb{background:var(--gold-dim);}
 
-.ticker-wrap {
-  background: var(--red);
-  overflow: hidden;
-  padding: 8px 0;
-  position: relative;
-  z-index: 600;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-.ticker-inner {
-  display: flex;
-  white-space: nowrap;
-  animation: scrollticker 40s linear infinite;
-  gap: 0;
-}
-.ticker-item {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #fff;
-  padding: 0 3rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-}
-.ticker-item .hi { color: #FFD700; }
-.ticker-sep { color: rgba(255,255,255,0.25); font-size: 1.2rem; }
-@keyframes scrollticker {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+.ticker{background:var(--red);overflow:hidden;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.ticker-track{display:flex;white-space:nowrap;animation:tick 35s linear infinite;}
+.tick-item{font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#fff;padding:0 2.5rem;flex-shrink:0;}
+.tick-item .hi{color:#FFD700;}
+.tick-sep{opacity:0.3;padding:0 0.5rem;}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 500;
-  height: 68px;
-  background: rgba(8,6,10,0.96);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(20px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 4vw;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  text-decoration: none;
-}
-.nav-emblem {
-  width: 42px; height: 42px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-dim));
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem;
-  flex-shrink: 0;
-  box-shadow: 0 0 20px rgba(201,168,76,0.25);
-}
-.nav-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.2rem;
-  letter-spacing: 3px;
-  color: var(--white);
-  line-height: 1;
-}
-.nav-name small {
-  display: block;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 4px;
-  color: var(--gold);
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-top: 1px;
-}
-.nav-links {
-  display: flex;
-  gap: 2.5rem;
-  align-items: center;
-}
-.nav-links a {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.2s;
-  cursor: pointer;
-}
-.nav-links a:hover { color: var(--gold); }
-.nav-cta {
-  background: var(--gold);
-  color: var(--black);
-  padding: 10px 22px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.nav-cta:hover { background: var(--gold-bright); }
+nav{position:sticky;top:0;z-index:500;height:68px;background:rgba(8,6,10,0.97);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:space-between;padding:0 4vw;}
+.nav-logo{display:flex;align-items:center;gap:12px;cursor:pointer;}
+.nav-lion{width:42px;height:42px;background:linear-gradient(135deg,var(--gold),var(--gold-dim));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 0 20px rgba(201,168,76,0.25);}
+.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:3px;color:var(--white);line-height:1;}
+.nav-brand small{display:block;font-family:'Barlow Condensed',sans-serif;font-size:0.58rem;letter-spacing:4px;color:var(--gold);font-weight:600;text-transform:uppercase;}
+.nav-links{display:flex;gap:2rem;align-items:center;}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;cursor:pointer;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--black);padding:10px 22px;font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:background 0.2s;}
+.nav-cta:hover{background:var(--gold-bright);}
 
-.hero {
-  min-height: 96vh;
-  position: relative;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.hero-left {
-  background: var(--dark);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 6rem 5vw 5rem 4vw;
-  position: relative;
-  z-index: 2;
-}
-.hero-left::after {
-  content: '';
-  position: absolute;
-  top: 0; right: -40px; bottom: 0;
-  width: 80px;
-  background: var(--dark);
-  transform: skewX(-3deg);
-  z-index: 3;
-}
-.hero-season {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 1.5rem;
-}
-.hero-season-dot {
-  width: 8px; height: 8px;
-  background: var(--gold);
-  border-radius: 50%;
-  animation: pulsegold 2s infinite;
-}
-@keyframes pulsegold {
-  0%,100% { opacity:1; box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
-  50% { opacity:0.7; box-shadow: 0 0 0 6px rgba(201,168,76,0); }
-}
-.hero-season-text {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-.hero-h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(5rem, 9vw, 9rem);
-  line-height: 0.88;
-  letter-spacing: 2px;
-  color: var(--white);
-  margin-bottom: 1.5rem;
-}
-.hero-h1 .roar {
-  display: block;
-  color: var(--gold);
-  font-size: 0.55em;
-  letter-spacing: 8px;
-  -webkit-text-stroke: 1px var(--gold-dim);
-}
-.hero-tagline {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 300;
-  color: rgba(245,242,234,0.5);
-  line-height: 1.7;
-  max-width: 420px;
-  margin-bottom: 2.5rem;
-}
-.hero-tagline strong { color: var(--white); font-weight: 600; }
-.hero-stats {
-  display: flex;
-  gap: 2.5rem;
-  padding: 1.5rem 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 2.5rem;
-}
-.hst-n {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.5rem;
-  color: var(--gold);
-  line-height: 1;
-}
-.hst-l {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 2px;
-}
-.hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.hbtn {
-  padding: 14px 28px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.hbtn-gold { background: var(--gold); color: var(--black); }
-.hbtn-gold:hover { background: var(--gold-bright); }
-.hbtn-outline {
-  background: transparent;
-  border: 1px solid var(--border-hi);
-  color: var(--gold);
-}
-.hbtn-outline:hover { background: rgba(201,168,76,0.08); }
-.hero-right {
-  position: relative;
-  overflow: hidden;
-}
-.hero-bg-img {
-  position: absolute;
-  inset: 0;
-  background: url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1400&q=90&fit=crop&crop=center') center/cover no-repeat;
-  filter: brightness(0.45) saturate(0.7);
-  transition: transform 8s ease;
-}
-.hero-bg-img:hover { transform: scale(1.03); }
-.hero-bg-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, var(--dark) 0%, transparent 30%),
-              linear-gradient(to top, rgba(8,6,10,0.9) 0%, transparent 50%);
-}
-.hero-live-card {
-  position: absolute;
-  bottom: 3rem;
-  right: 3rem;
-  z-index: 4;
-  background: rgba(20,16,24,0.92);
-  border: 1px solid var(--border-hi);
-  backdrop-filter: blur(16px);
-  padding: 1.6rem 2rem;
-  min-width: 300px;
-}
-.hlc-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.2rem;
-}
-.hlc-live { display: flex; align-items: center; gap: 6px; }
-.live-dot {
-  width: 8px; height: 8px;
-  background: #E53935;
-  border-radius: 50%;
-  animation: livepulse 1s infinite;
-}
-@keyframes livepulse {
-  0%,100% { opacity:1; transform:scale(1); }
-  50% { opacity:0.3; transform:scale(0.7); }
-}
-.live-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #E53935;
-}
-.hlc-league {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.hlc-teams {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-.hlc-team.away { text-align: right; }
-.hlc-tname {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--white);
-  margin-bottom: 2px;
-}
-.hlc-score {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.2rem;
-  color: var(--gold);
-  line-height: 1;
-  letter-spacing: 1px;
-}
-.hlc-overs { font-size: 0.62rem; color: var(--muted); }
-.hlc-vs {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.2rem;
-  color: var(--muted);
-}
-.hlc-status {
-  font-size: 0.72rem;
-  color: var(--gold);
-  font-weight: 500;
-  padding-top: 0.8rem;
-  border-top: 1px solid var(--border);
-  text-align: center;
-}
-.hlc-link {
-  display: block;
-  margin-top: 0.8rem;
-  text-align: center;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.hlc-link:hover { color: var(--gold); }
+.hero{min-height:96vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
+.hero-left{background:var(--dark);display:flex;flex-direction:column;justify-content:center;padding:6rem 5vw 5rem 4vw;position:relative;z-index:2;}
+.hero-left::after{content:'';position:absolute;top:0;right:-40px;bottom:0;width:80px;background:var(--dark);transform:skewX(-3deg);z-index:3;}
+.hero-pulse{display:inline-flex;align-items:center;gap:8px;margin-bottom:1.5rem;}
+.pulse-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pgold 2s infinite;}
+@keyframes pgold{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(201,168,76,0.4);}50%{opacity:0.7;box-shadow:0 0 0 6px rgba(201,168,76,0);}}
+.pulse-text{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,9vw,9rem);line-height:0.88;letter-spacing:2px;color:var(--white);margin-bottom:1.5rem;}
+.hero h1 .roar{display:block;color:var(--gold);font-size:0.55em;letter-spacing:8px;-webkit-text-stroke:1px var(--gold-dim);}
+.hero-desc{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:300;color:rgba(245,242,234,0.5);line-height:1.7;max-width:420px;margin-bottom:2.5rem;}
+.hero-desc strong{color:var(--white);font-weight:600;}
+.hero-stats{display:flex;gap:2.5rem;padding:1.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:2.5rem;}
+.hs-n{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--gold);line-height:1;}
+.hs-l{font-family:'Barlow Condensed',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+.hero-btns{display:flex;gap:0.75rem;flex-wrap:wrap;}
+.btn{padding:14px 28px;font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.2s;}
+.btn-gold{background:var(--gold);color:var(--black);}
+.btn-gold:hover{background:var(--gold-bright);}
+.btn-outline{background:transparent;border:1px solid var(--border-hi);color:var(--gold);}
+.btn-outline:hover{background:rgba(201,168,76,0.08);}
+.hero-right{position:relative;overflow:hidden;}
+.hero-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1400&q=90&fit=crop&crop=center') center/cover no-repeat;filter:brightness(0.45) saturate(0.7);transition:transform 8s ease;}
+.hero-img:hover{transform:scale(1.03);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--dark) 0%,transparent 30%),linear-gradient(to top,rgba(8,6,10,0.9) 0%,transparent 50%);}
 
-.loading-bar {
-  height: 2px;
-  background: linear-gradient(to right, transparent, var(--gold), transparent);
-  background-size: 200% 100%;
-  animation: loadingbar 1.5s infinite;
-}
-@keyframes loadingbar {
-  0% { background-position: -100% 0; }
-  100% { background-position: 300% 0; }
-}
+.match-card{position:absolute;bottom:3rem;right:3rem;z-index:4;background:rgba(20,16,24,0.92);border:1px solid var(--border-hi);backdrop-filter:blur(16px);padding:1.6rem 2rem;min-width:300px;}
+.mc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;}
+.mc-live{display:flex;align-items:center;gap:6px;}
+.live-dot{width:8px;height:8px;background:#E53935;border-radius:50%;animation:lp 1s infinite;}
+@keyframes lp{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.3;transform:scale(0.7);}}
+.live-lbl{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#E53935;}
+.mc-league{font-family:'Barlow Condensed',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.mc-teams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;margin-bottom:1rem;}
+.mc-team.away{text-align:right;}
+.mc-tname{font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:1px;color:var(--white);margin-bottom:2px;}
+.mc-score{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--gold);line-height:1;}
+.mc-overs{font-size:0.62rem;color:var(--muted);}
+.mc-vs{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--muted);}
+.mc-status{font-size:0.72rem;color:var(--gold);padding-top:0.8rem;border-top:1px solid var(--border);text-align:center;}
 
-.gold-band {
-  background: var(--gold);
-  padding: 1.4rem 4vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
-  overflow: hidden;
-}
-.gb-headline {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
-  color: var(--black);
-  letter-spacing: 1px;
-  white-space: nowrap;
-}
-.gb-pills { display: flex; gap: 0.6rem; flex-wrap: wrap; }
-.gb-pill {
-  background: rgba(0,0,0,0.15);
-  color: var(--black);
-  padding: 6px 14px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
+.gold-band{background:var(--gold);padding:1.4rem 4vw;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.gb-hl{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,2.5vw,2.2rem);color:var(--black);letter-spacing:1px;white-space:nowrap;}
+.gb-pills{display:flex;gap:0.6rem;flex-wrap:wrap;}
+.gb-pill{background:rgba(0,0,0,0.15);color:var(--black);padding:6px 14px;font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
 
-.sec { padding: 5rem 4vw; }
-.sec-dark { background: var(--dark); }
-.sec-panel { background: var(--panel); }
-.sec-black { background: var(--black); }
-.sec-head { margin-bottom: 3rem; }
-.sec-kicker {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.5rem;
-}
-.sec-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  color: var(--white);
-  letter-spacing: 2px;
-  line-height: 0.92;
-}
-.sec-title em { color: var(--gold); font-style: normal; }
+.sec{padding:5rem 4vw;}
+.sec-dark{background:var(--dark);}
+.sec-panel{background:var(--panel);}
+.sec-black{background:var(--black);}
+.sec-head{margin-bottom:3rem;}
+.kicker{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);color:var(--white);letter-spacing:2px;line-height:0.92;}
+.sec-title em{color:var(--gold);font-style:normal;}
 
-.scores-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-.score-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 1.8rem;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.3s;
-}
-.score-card:hover { border-color: var(--border-hi); }
-.score-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--gold-dim);
-}
-.score-card.is-live::before { background: var(--red); animation: livebar 2s infinite; }
-@keyframes livebar { 0%,100%{opacity:1} 50%{opacity:0.4} }
-.score-card.is-win::before { background: var(--green); }
-.score-card.is-loss::before { background: var(--red); }
-.sc-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.2rem;
-}
-.sc-badge {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border: 1px solid;
-}
-.sc-badge.live { color: #E53935; border-color: rgba(229,57,53,0.3); background: rgba(229,57,53,0.08); }
-.sc-badge.win  { color: #4CAF50; border-color: rgba(76,175,80,0.3); background: rgba(76,175,80,0.08); }
-.sc-badge.loss { color: #EF5350; border-color: rgba(239,83,80,0.3); background: rgba(239,83,80,0.08); }
-.sc-badge.upcoming { color: var(--gold); border-color: var(--border-hi); background: rgba(201,168,76,0.06); }
-.sc-venue {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.62rem;
-  color: var(--muted);
-  letter-spacing: 1px;
-}
-.sc-matchup {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-.sc-team.away { text-align: right; }
-.sc-tname {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--white);
-  margin-bottom: 2px;
-}
-.sc-tname.lions-name { color: var(--gold); }
-.sc-tscore {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2rem;
-  color: var(--gold);
-  letter-spacing: 1px;
-  line-height: 1;
-}
-.sc-tovers { font-size: 0.62rem; color: var(--muted); margin-top: 2px; }
-.sc-vs {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.1rem;
-  color: var(--muted);
-}
-.sc-result {
-  font-size: 0.78rem;
-  color: #4CAF50;
-  font-weight: 500;
-  padding-top: 0.8rem;
-  border-top: 1px solid var(--border);
-}
-.sc-result.loss { color: #EF5350; }
-.sc-result.neutral { color: var(--muted); }
-.sc-fulllink {
-  display: inline-block;
-  margin-top: 0.6rem;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  text-decoration: none;
-}
-.sc-fulllink:hover { color: var(--gold); }
+.scores-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.score-card{background:var(--card);border:1px solid var(--border);padding:1.8rem;position:relative;overflow:hidden;transition:border-color 0.3s;}
+.score-card:hover{border-color:var(--border-hi);}
+.score-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold-dim);}
+.score-card.live::before{background:var(--red);animation:lb 2s infinite;}
+.score-card.win::before{background:var(--green);}
+.score-card.loss::before{background:var(--red);}
+@keyframes lb{0%,100%{opacity:1}50%{opacity:0.4}}
+.sc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;}
+.sc-badge{font-family:'Barlow Condensed',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border:1px solid;}
+.sc-badge.live{color:#E53935;border-color:rgba(229,57,53,0.3);background:rgba(229,57,53,0.08);}
+.sc-badge.win{color:#4CAF50;border-color:rgba(76,175,80,0.3);background:rgba(76,175,80,0.08);}
+.sc-badge.loss{color:#EF5350;border-color:rgba(239,83,80,0.3);background:rgba(239,83,80,0.08);}
+.sc-badge.upcoming{color:var(--gold);border-color:var(--border-hi);background:rgba(201,168,76,0.06);}
+.sc-venue{font-family:'Barlow Condensed',sans-serif;font-size:0.62rem;color:var(--muted);}
+.sc-matchup{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;margin-bottom:1rem;}
+.sc-team.away{text-align:right;}
+.sc-tname{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:1px;color:var(--white);}
+.sc-tname.lions{color:var(--gold);}
+.sc-tscore{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);line-height:1;}
+.sc-tovers{font-size:0.62rem;color:var(--muted);margin-top:2px;}
+.sc-vs{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--muted);}
+.sc-result{font-size:0.78rem;font-weight:500;padding-top:0.8rem;border-top:1px solid var(--border);}
+.sc-result.win{color:#4CAF50;}
+.sc-result.loss{color:#EF5350;}
+.sc-result.neutral{color:var(--muted);}
 
-.skeleton {
-  background: linear-gradient(90deg, var(--card) 25%, var(--card2) 50%, var(--card) 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-  border-radius: 2px;
-}
-@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+.shimmer{background:linear-gradient(90deg,var(--card) 25%,var(--card2) 50%,var(--card) 75%);background-size:200% 100%;animation:shim 1.5s infinite;border-radius:2px;}
+@keyframes shim{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.loading-bar{height:2px;background:linear-gradient(to right,transparent,var(--gold),transparent);background-size:200%;animation:loadbar 1.5s infinite;}
+@keyframes loadbar{0%{background-position:-100% 0}100%{background-position:300% 0}}
 
-.squad-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-.player-card {
-  background: var(--card);
-  padding: 1.5rem;
-  transition: background 0.2s;
-  cursor: default;
-}
-.player-card:hover { background: var(--card2); }
-.player-avatar {
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--gold-dim), #3A2A00);
-  color: var(--gold-bright);
-  position: relative;
-  border: 2px solid var(--border);
-  flex-shrink: 0;
-}
-.player-cap-badge {
-  position: absolute;
-  top: -4px; right: -4px;
-  background: var(--gold);
-  color: var(--black);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.48rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding: 2px 4px;
-  border-radius: 1px;
-}
-.player-name {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: var(--white);
-  margin-bottom: 2px;
-  line-height: 1.2;
-}
-.player-role {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1rem;
-}
-.player-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 4px;
-}
-.pstat {
-  background: rgba(201,168,76,0.05);
-  padding: 5px 4px;
-  text-align: center;
-}
-.pstat-n {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.1rem;
-  color: var(--white);
-  letter-spacing: 0.5px;
-  line-height: 1;
-}
-.pstat-l {
-  font-size: 0.5rem;
-  color: var(--muted);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-top: 1px;
-}
+.squad-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);}
+.player-card{background:var(--card);padding:1.5rem;transition:background 0.2s;cursor:default;}
+.player-card:hover{background:var(--card2);}
+.player-av{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:1px;border:2px solid var(--border);position:relative;flex-shrink:0;}
+.p-cap{position:absolute;top:-4px;right:-4px;background:var(--gold);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-size:0.48rem;font-weight:700;letter-spacing:1px;padding:2px 4px;border-radius:1px;}
+.p-name{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:2px;line-height:1.2;}
+.p-role{font-family:'Barlow Condensed',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.p-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;}
+.pst{background:rgba(201,168,76,0.05);padding:5px 4px;text-align:center;}
+.pst-n{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--white);line-height:1;}
+.pst-l{font-size:0.5rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:1px;}
 
-.standings-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: 'Barlow Condensed', sans-serif;
-}
-.standings-table thead tr { border-bottom: 1px solid var(--border-hi); }
-.standings-table th {
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 0.8rem 1rem;
-  text-align: left;
-}
-.standings-table th:not(:first-child) { text-align: center; }
-.standings-table td {
-  padding: 1rem;
-  font-size: 0.95rem;
-  border-bottom: 1px solid rgba(201,168,76,0.05);
-  color: var(--white);
-  font-weight: 500;
-}
-.standings-table td:not(:first-child) { text-align: center; }
-.standings-table tr:hover td { background: rgba(201,168,76,0.03); }
-.standings-table tr.lions-row td {
-  background: rgba(201,168,76,0.06);
-  color: var(--gold-bright);
-}
-.standings-table tr.lions-row { border-left: 3px solid var(--gold); }
-.team-cell-inner { display: flex; align-items: center; gap: 10px; }
-.team-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex-shrink:0; }
-.team-dot.lions { background: var(--gold); box-shadow: 0 0 8px rgba(201,168,76,0.5); }
-.pts-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--gold); letter-spacing: 1px; }
-.nrr-val { font-size: 0.82rem; }
-.nrr-pos { color: #4CAF50; }
-.nrr-neg { color: #EF5350; }
+.standings-table{width:100%;border-collapse:collapse;font-family:'Barlow Condensed',sans-serif;}
+.standings-table thead tr{border-bottom:1px solid var(--border-hi);}
+.standings-table th{font-size:0.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);padding:0.8rem 1rem;text-align:left;}
+.standings-table th:not(:first-child){text-align:center;}
+.standings-table td{padding:1rem;font-size:0.95rem;border-bottom:1px solid rgba(201,168,76,0.05);color:var(--white);font-weight:500;}
+.standings-table td:not(:first-child){text-align:center;}
+.standings-table tr:hover td{background:rgba(201,168,76,0.03);}
+.standings-table tr.lions-row{border-left:3px solid var(--gold);}
+.standings-table tr.lions-row td{background:rgba(201,168,76,0.06);color:var(--gold-bright);}
+.t-cell{display:flex;align-items:center;gap:10px;}
+.t-dot{width:8px;height:8px;border-radius:50%;background:var(--muted);flex-shrink:0;}
+.t-dot.lions{background:var(--gold);box-shadow:0 0 8px rgba(201,168,76,0.5);}
+.pts-v{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--gold);}
+.nrr-pos{color:#4CAF50;font-size:0.82rem;}
+.nrr-neg{color:#EF5350;font-size:0.82rem;}
 
-.embed-bar {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.8rem 1.5rem;
-  border-bottom: none;
-}
-.embed-bar-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-.embed-bar-right a {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-}
-.embed-bar-right a:hover { color: var(--gold); }
-.cricclubs-embed {
-  width: 100%;
-  height: 620px;
-  border: 1px solid var(--border);
-  border-top: none;
-  background: #fff;
-  display: block;
-}
+.feed-layout{display:grid;grid-template-columns:1fr 340px;gap:2rem;align-items:start;}
+.post{background:var(--card);border:1px solid var(--border);padding:1.5rem;margin-bottom:1.2rem;transition:border-color 0.2s;}
+.post:hover{border-color:var(--border-hi);}
+.post-head{display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
+.post-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dim),#3A2A00);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.post-author{font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;font-weight:700;color:var(--white);}
+.post-meta{font-size:0.65rem;color:var(--muted);margin-top:1px;}
+.p-badge{background:var(--gold);color:var(--black);font-size:0.55rem;font-weight:700;letter-spacing:1px;padding:2px 6px;margin-left:4px;}
+.post-time{margin-left:auto;font-size:0.65rem;color:var(--muted);}
+.post-body{font-size:0.9rem;color:rgba(245,242,234,0.7);line-height:1.7;margin-bottom:1rem;}
+.post-tag{color:var(--gold);}
+.post-img{width:100%;height:160px;background:linear-gradient(135deg,var(--card2),var(--panel));display:flex;align-items:center;justify-content:center;font-size:3rem;margin-bottom:1rem;border:1px solid var(--border);}
+.post-actions{display:flex;gap:1.5rem;}
+.pact{background:none;border:none;color:var(--muted);font-family:'Barlow',sans-serif;font-size:0.78rem;cursor:pointer;display:flex;align-items:center;gap:5px;transition:color 0.2s;}
+.pact:hover{color:var(--gold);}
+.post-compose{background:var(--card);border:1px dashed var(--border-hi);padding:1.5rem;}
+.compose-lbl{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:0.8rem;}
+.compose-ta{width:100%;background:var(--panel);border:1px solid var(--border);padding:10px 12px;color:var(--white);font-family:'Barlow',sans-serif;font-size:0.88rem;resize:none;height:80px;outline:none;}
+.compose-ta:focus{border-color:var(--gold-dim);}
+.compose-foot{display:flex;justify-content:space-between;align-items:center;margin-top:0.8rem;}
+.compose-tools{display:flex;gap:0.5rem;}
+.compose-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:5px 12px;font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:700;cursor:pointer;}
+.compose-post{background:var(--gold);color:var(--black);border:none;padding:8px 18px;font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;}
+.sidebar-card{background:var(--card);border:1px solid var(--border);padding:1.2rem;margin-bottom:1.2rem;}
+.sb-title{font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+.hashtag{display:inline-block;background:var(--panel);color:var(--gold);padding:4px 10px;font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:600;margin:3px;cursor:pointer;}
+.hashtag:hover{background:rgba(201,168,76,0.1);}
+.lb-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid rgba(201,168,76,0.05);font-size:0.82rem;}
+.lb-row:last-child{border-bottom:none;}
+.lb-rank{color:var(--muted);width:18px;font-weight:700;font-family:'Barlow Condensed',sans-serif;}
+.lb-name{flex:1;color:var(--white);font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;font-weight:600;}
+.lb-val{color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1.1rem;}
 
-.feed-layout {
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 2rem;
-  align-items: start;
-}
-.post {
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 1.5rem;
-  margin-bottom: 1.2rem;
-  transition: border-color 0.2s;
-}
-.post:hover { border-color: var(--border-hi); }
-.post-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 1rem;
-}
-.post-av {
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold-dim), #3A2A00);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1rem;
-  flex-shrink: 0;
-}
-.post-author {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: var(--white);
-}
-.post-meta { font-size: 0.65rem; color: var(--muted); margin-top: 1px; }
-.post-badge {
-  background: var(--gold);
-  color: var(--black);
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding: 2px 6px;
-  margin-left: 4px;
-}
-.post-time { margin-left: auto; font-size: 0.65rem; color: var(--muted); }
-.post-body {
-  font-size: 0.9rem;
-  color: rgba(245,242,234,0.7);
-  line-height: 1.7;
-  margin-bottom: 1rem;
-}
-.post-body .tag { color: var(--gold); }
-.post-img {
-  width: 100%;
-  height: 160px;
-  background: linear-gradient(135deg, var(--card2), var(--panel));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  border: 1px solid var(--border);
-}
-.post-actions { display: flex; gap: 1.5rem; }
-.post-action {
-  background: none;
-  border: none;
-  color: var(--muted);
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.78rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: color 0.2s;
-}
-.post-action:hover { color: var(--gold); }
-.post-compose {
-  background: var(--card);
-  border: 1px dashed var(--border-hi);
-  padding: 1.5rem;
-}
-.compose-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.8rem;
-}
-.compose-input {
-  width: 100%;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  padding: 10px 12px;
-  color: var(--white);
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.88rem;
-  resize: none;
-  height: 80px;
-  outline: none;
-}
-.compose-input:focus { border-color: var(--gold-dim); }
-.compose-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 0.8rem;
-}
-.compose-tools { display: flex; gap: 0.5rem; }
-.compose-btn {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--muted);
-  padding: 5px 12px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  cursor: pointer;
-}
-.compose-submit {
-  background: var(--gold);
-  color: var(--black);
-  border: none;
-  padding: 8px 18px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.sidebar-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 1.2rem;
-  margin-bottom: 1.2rem;
-}
-.sidebar-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid var(--border);
-}
-.hashtag {
-  display: inline-block;
-  background: var(--panel);
-  color: var(--gold);
-  padding: 4px 10px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 600;
-  margin: 3px;
-  cursor: pointer;
-}
-.hashtag:hover { background: rgba(201,168,76,0.1); }
-.lb-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(201,168,76,0.05);
-  font-size: 0.82rem;
-}
-.lb-row:last-child { border-bottom: none; }
-.lb-rank { color: var(--muted); width: 18px; font-weight: 700; font-family: 'Barlow Condensed', sans-serif; }
-.lb-name { flex: 1; color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 600; }
-.lb-val { color: var(--gold); font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1px; }
+.join-sec{background:linear-gradient(rgba(8,6,10,0.88),rgba(8,6,10,0.95)),url('https://images.unsplash.com/photo-1624526267942-ab0ff8a3c972?w=1600&q=80&fit=crop') center/cover;text-align:center;padding:7rem 4vw;}
+.join-sec p{font-size:1rem;color:rgba(245,242,234,0.5);max-width:520px;margin:0 auto 3rem;line-height:1.8;font-weight:300;}
+.join-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-j-gold{background:var(--gold);color:var(--black);padding:16px 36px;font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;}
+.btn-j-ghost{background:transparent;border:1px solid var(--border-hi);color:var(--gold);padding:16px 36px;font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;}
+.sponsors-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--border);margin-top:2rem;}
+.sponsor-card{background:var(--card);padding:1.5rem;text-align:center;transition:background 0.2s;}
+.sponsor-card:hover{background:var(--card2);}
+.sponsor-icon{font-size:2rem;margin-bottom:0.6rem;}
+.sponsor-name{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--white);}
+.sponsor-type{font-size:0.62rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
 
-.join-sec {
-  background:
-    linear-gradient(rgba(8,6,10,0.88), rgba(8,6,10,0.95)),
-    url('https://images.unsplash.com/photo-1624526267942-ab0ff8a3c972?w=1600&q=80&fit=crop') center/cover;
-  text-align: center;
-  padding: 7rem 4vw;
-  position: relative;
-}
-.join-sec .sec-title { margin-bottom: 1rem; }
-.join-sec p {
-  font-size: 1rem;
-  color: rgba(245,242,234,0.5);
-  max-width: 520px;
-  margin: 0 auto 3rem;
-  line-height: 1.8;
-  font-weight: 300;
-}
-.join-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-.jbtn-gold {
-  background: var(--gold);
-  color: var(--black);
-  padding: 16px 36px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-}
-.jbtn-ghost {
-  background: transparent;
-  border: 1px solid var(--border-hi);
-  color: var(--gold);
-  padding: 16px 36px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  cursor: pointer;
-}
+#dashSection{display:none;}
+.dash-hdr{background:var(--panel);border-bottom:1px solid var(--border);padding:1.5rem 4vw;display:flex;justify-content:space-between;align-items:center;}
+.dash-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--gold);letter-spacing:2px;}
+.dash-sub{font-size:0.72rem;color:var(--muted);font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;}
+.dash-hdr-r{display:flex;gap:0.8rem;}
+.dash-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:8px 16px;font-family:'Barlow Condensed',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;}
+.dash-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
+.dash-btn.logout{color:var(--red);border-color:rgba(176,32,32,0.2);}
+.dash-btn.logout:hover{border-color:var(--red);}
+.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);padding:2rem 4vw;}
+.dash-card{background:var(--card);padding:1.5rem;}
+.dash-card.wide{grid-column:span 2;}
+.dash-card.full{grid-column:span 4;}
+.dc-label{font-family:'Barlow Condensed',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:0.4rem;}
+.dc-val{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:var(--gold);line-height:1;}
+.dc-sub{font-size:0.72rem;color:var(--green);margin-top:3px;font-family:'Barlow Condensed',sans-serif;font-weight:600;}
+.fixture-row{display:flex;justify-content:space-between;align-items:center;padding:0.8rem 0;border-bottom:1px solid var(--border);}
+.fixture-row:last-child{border-bottom:none;}
+.fix-vs{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--white);}
+.fix-date{font-size:0.7rem;color:var(--muted);margin-top:2px;}
+.fix-type{background:var(--gold);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:2px;padding:3px 8px;}
+.perf-table{width:100%;border-collapse:collapse;font-family:'Barlow Condensed',sans-serif;font-size:0.88rem;}
+.perf-table th{font-size:0.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);padding:0.5rem 0.8rem;text-align:left;border-bottom:1px solid var(--border);}
+.perf-table td{padding:0.7rem 0.8rem;border-bottom:1px solid rgba(201,168,76,0.04);color:var(--white);}
+.perf-table td:first-child{color:var(--muted);}
 
-#dashboardSection { display: none; }
-.dash-header {
-  background: var(--panel);
-  border-bottom: 1px solid var(--border);
-  padding: 1.5rem 4vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.dash-welcome-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.8rem;
-  color: var(--gold);
-  letter-spacing: 2px;
-}
-.dash-welcome-sub {
-  font-size: 0.72rem;
-  color: var(--muted);
-  font-family: 'Barlow Condensed', sans-serif;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.dash-header-right { display: flex; gap: 0.8rem; }
-.dash-btn {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--muted);
-  padding: 8px 16px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.dash-btn:hover { border-color: var(--gold-dim); color: var(--gold); }
-.dash-btn.logout { color: var(--red); border-color: rgba(176,32,32,0.2); }
-.dash-btn.logout:hover { border-color: var(--red); }
-.dash-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--border);
-  padding: 2rem 4vw;
-}
-.dash-stat-card { background: var(--card); padding: 1.5rem; }
-.dash-stat-card.wide { grid-column: span 2; }
-.dash-stat-card.full { grid-column: span 4; }
-.dash-stat-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.4rem;
-}
-.dash-stat-val {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.8rem;
-  color: var(--gold);
-  line-height: 1;
-  letter-spacing: 1px;
-}
-.dash-stat-sub {
-  font-size: 0.72rem;
-  color: var(--green);
-  margin-top: 3px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 600;
-}
-.dash-upcoming-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.8rem 0;
-  border-bottom: 1px solid var(--border);
-}
-.dash-upcoming-item:last-child { border-bottom: none; }
-.dui-match {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--white);
-}
-.dui-date { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
-.dui-type {
-  background: var(--gold);
-  color: var(--black);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  padding: 3px 8px;
-}
-.perf-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.88rem;
-}
-.perf-table th {
-  font-size: 0.58rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 0.5rem 0.8rem;
-  text-align: left;
-  border-bottom: 1px solid var(--border);
-}
-.perf-table td {
-  padding: 0.7rem 0.8rem;
-  border-bottom: 1px solid rgba(201,168,76,0.04);
-  color: var(--white);
-}
-.perf-table td:first-child { color: var(--muted); }
+#loginModal{display:none;position:fixed;inset:0;z-index:999;background:rgba(8,6,10,0.95);align-items:center;justify-content:center;}
+#loginModal.open{display:flex;}
+.modal-box{background:var(--panel);border:1px solid var(--border-hi);padding:3rem;width:420px;max-width:90vw;position:relative;}
+.modal-x{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--muted);font-size:1.2rem;cursor:pointer;}
+.modal-x:hover{color:var(--white);}
+.modal-logo{text-align:center;margin-bottom:2rem;}
+.modal-icon{font-size:2.5rem;}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--gold);letter-spacing:3px;}
+.modal-sub{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.role-tabs{display:flex;border:1px solid var(--border);margin-bottom:1.5rem;overflow:hidden;}
+.rtab{flex:1;padding:9px;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:none;border:none;color:var(--muted);cursor:pointer;transition:all 0.2s;}
+.rtab.active{background:var(--gold);color:var(--black);}
+.form-f{margin-bottom:1.2rem;}
+.form-f label{display:block;font-family:'Barlow Condensed',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;}
+.form-f input,.form-f select{width:100%;background:var(--card);border:1px solid var(--border);padding:11px 12px;color:var(--white);font-family:'Barlow',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;}
+.form-f input:focus,.form-f select:focus{border-color:var(--gold-dim);}
+.form-submit{width:100%;background:var(--gold);color:var(--black);border:none;padding:14px;font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;margin-top:0.5rem;}
+.form-submit:hover{background:var(--gold-bright);}
+.form-switch{text-align:center;margin-top:1.2rem;font-size:0.82rem;color:var(--muted);}
+.form-switch span{color:var(--gold);cursor:pointer;font-weight:600;}
 
-#loginModal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  background: rgba(8,6,10,0.95);
-  align-items: center;
-  justify-content: center;
-}
-#loginModal.open { display: flex; }
-.modal-box {
-  background: var(--panel);
-  border: 1px solid var(--border-hi);
-  padding: 3rem;
-  width: 420px;
-  max-width: 90vw;
-  position: relative;
-}
-.modal-close {
-  position: absolute;
-  top: 1rem; right: 1rem;
-  background: none;
-  border: none;
-  color: var(--muted);
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-.modal-close:hover { color: var(--white); }
-.modal-logo { text-align: center; margin-bottom: 2rem; }
-.modal-logo-icon { font-size: 2.5rem; }
-.modal-logo-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.8rem;
-  color: var(--gold);
-  letter-spacing: 3px;
-}
-.modal-logo-sub {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.role-tabs {
-  display: flex;
-  border: 1px solid var(--border);
-  margin-bottom: 1.5rem;
-  overflow: hidden;
-}
-.role-tab {
-  flex: 1;
-  padding: 9px;
-  text-align: center;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  background: none;
-  border: none;
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.role-tab.active { background: var(--gold); color: var(--black); }
-.form-field { margin-bottom: 1.2rem; }
-.form-field label {
-  display: block;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.5rem;
-}
-.form-field input, .form-field select {
-  width: 100%;
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 11px 12px;
-  color: var(--white);
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.9rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.form-field input:focus, .form-field select:focus { border-color: var(--gold-dim); }
-.form-submit {
-  width: 100%;
-  background: var(--gold);
-  color: var(--black);
-  border: none;
-  padding: 14px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  cursor: pointer;
-  margin-top: 0.5rem;
-}
-.form-submit:hover { background: var(--gold-bright); }
-.form-switch {
-  text-align: center;
-  margin-top: 1.2rem;
-  font-size: 0.82rem;
-  color: var(--muted);
-}
-.form-switch span { color: var(--gold); cursor: pointer; font-weight: 600; }
+footer{background:var(--black);border-top:1px solid var(--border);padding:3rem 4vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:2rem;}
+.f-brand{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--gold);letter-spacing:3px;}
+.f-brand small{display:block;font-family:'Barlow Condensed',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:4px;color:var(--muted);margin-top:2px;}
+.f-mid{font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:center;line-height:2;}
+.f-right{font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:right;line-height:2;}
 
-footer {
-  background: var(--black);
-  border-top: 1px solid var(--border);
-  padding: 3rem 4vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr;}
+  .hero-right{height:50vw;}
+  .match-card{display:none;}
+  .feed-layout{grid-template-columns:1fr;}
+  .dash-grid{grid-template-columns:1fr 1fr;}
+  .dash-card.full{grid-column:span 2;}
+  .dash-card.wide{grid-column:span 2;}
 }
-.footer-brand {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.5rem;
-  color: var(--gold);
-  letter-spacing: 3px;
-}
-.footer-brand small {
-  display: block;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 4px;
-  color: var(--muted);
-  margin-top: 2px;
-}
-.footer-mid {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-align: center;
-  line-height: 2;
-}
-.footer-right {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-align: right;
-  line-height: 2;
-}
-.footer-right a { color: var(--gold-dim); text-decoration: none; }
-.footer-right a:hover { color: var(--gold); }
-
-@media (max-width: 1024px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-right { height: 50vw; }
-  .hero-live-card { bottom: 1.5rem; right: 1.5rem; min-width: 240px; }
-  .feed-layout { grid-template-columns: 1fr; }
-  .dash-grid { grid-template-columns: 1fr 1fr; }
-  .dash-stat-card.full { grid-column: span 2; }
-  .dash-stat-card.wide { grid-column: span 2; }
-}
-@media (max-width: 768px) {
-  .scores-wrap { grid-template-columns: 1fr; }
-  .hero-stats { gap: 1.2rem; flex-wrap: wrap; }
-  nav .nav-links { display: none; }
-  .gold-band { flex-direction: column; align-items: flex-start; }
-  footer { flex-direction: column; text-align: center; }
-  .footer-right { text-align: center; }
-  .hero-live-card { display: none; }
+@media(max-width:768px){
+  .scores-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:1.2rem;flex-wrap:wrap;}
+  nav .nav-links{display:none;}
+  .gold-band{flex-direction:column;align-items:flex-start;}
+  footer{flex-direction:column;text-align:center;}
+  .f-right{text-align:center;}
 }
 </style>
 </head>
 <body>
 
-<div class="ticker-wrap" id="tickerWrap">
-  <div class="ticker-inner" id="ticker">
-    <span class="ticker-item">🦁 CHICAGO LIONS CC</span>
-    <span class="ticker-item ticker-sep">·</span>
-    <span class="ticker-item">🏆 2026 CHICAGO CUP T20</span>
-    <span class="ticker-item ticker-sep">·</span>
-    <span class="ticker-item">📍 CHICAGO PREMIER CRICKET LEAGUE</span>
-    <span class="ticker-item ticker-sep">·</span>
-    <span class="ticker-item">⏳ <span class="hi">Loading live scores...</span></span>
-    <span class="ticker-item ticker-sep">·</span>
-    <span class="ticker-item">🦁 CHICAGO LIONS CC</span>
-    <span class="ticker-item ticker-sep">·</span>
-    <span class="ticker-item">🏆 2026 CHICAGO CUP T20</span>
-    <span class="ticker-item ticker-sep">·</span>
-    <span class="ticker-item">📍 CHICAGO PREMIER CRICKET LEAGUE</span>
-    <span class="ticker-item ticker-sep">·</span>
-    <span class="ticker-item">⏳ <span class="hi">Loading live scores...</span></span>
-    <span class="ticker-item ticker-sep">·</span>
+<div class="ticker">
+  <div class="ticker-track" id="ticker">
+    <span class="tick-item">🦁 CHICAGO LIONS CRICKET CLUB</span>
+    <span class="tick-item tick-sep">·</span>
+    <span class="tick-item">🏆 2026 CHICAGO CUP T20</span>
+    <span class="tick-item tick-sep">·</span>
+    <span class="tick-item">📍 CHICAGO PREMIER CRICKET LEAGUE</span>
+    <span class="tick-item tick-sep">·</span>
+    <span class="tick-item">⚡ <span class="hi">LOADING LIVE SCORES...</span></span>
+    <span class="tick-item tick-sep">·</span>
+    <span class="tick-item">🦁 CHICAGO LIONS CRICKET CLUB</span>
+    <span class="tick-item tick-sep">·</span>
+    <span class="tick-item">🏆 2026 CHICAGO CUP T20</span>
+    <span class="tick-item tick-sep">·</span>
+    <span class="tick-item">📍 CHICAGO PREMIER CRICKET LEAGUE</span>
+    <span class="tick-item tick-sep">·</span>
+    <span class="tick-item">⚡ <span class="hi">LOADING LIVE SCORES...</span></span>
+    <span class="tick-item tick-sep">·</span>
   </div>
 </div>
 
 <nav>
   <div class="nav-logo" onclick="showMain()">
-    <div class="nav-emblem">🦁</div>
-    <div class="nav-name">Chicago Lions<small>Cricket Club · Est. 2018</small></div>
+    <div class="nav-lion">🦁</div>
+    <div class="nav-brand">Chicago Lions<small>Cricket Club · Est. 2018</small></div>
   </div>
   <div class="nav-links">
-    <a onclick="scrollTo('scoresSection')">Scores</a>
-    <a onclick="scrollTo('squadSection')">Squad</a>
-    <a onclick="scrollTo('standingsSection')">Standings</a>
-    <a onclick="scrollTo('feedSection')">Community</a>
-    <a href="https://cricclubs.com/ChicagoPremierCricketLeague/teams/GvPcLwxO9pAFv86SMykwXQ?seriesId=Wqu2eyt-gsrtGXtmfhRfdA&teamName=Chicago+Lions" target="_blank">CricClubs ↗</a>
+    <a onclick="goTo('scoresSection')">Scores</a>
+    <a onclick="goTo('squadSection')">Squad</a>
+    <a onclick="goTo('standingsSection')">Standings</a>
+    <a onclick="goTo('feedSection')">Community</a>
+    <a onclick="goTo('joinSection')">Join</a>
   </div>
   <button class="nav-cta" onclick="openLogin()">Player Login</button>
 </nav>
@@ -1277,183 +311,107 @@ footer {
 
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-season">
-      <div class="hero-season-dot"></div>
-      <div class="hero-season-text">2026 Chicago Cup T20 · Chicago Premier Cricket League</div>
+    <div class="hero-pulse">
+      <div class="pulse-dot"></div>
+      <div class="pulse-text">2026 Chicago Cup T20 · CPCL</div>
     </div>
-    <h1 class="hero-h1">
-      CHICAGO<br>LIONS
-      <span class="roar">FEAR THE ROAR</span>
-    </h1>
-    <p class="hero-tagline">
-      Chicago's premier cricket club. Competing in the 2026 Chicago Cup T20 every weekend at Prairie View.
-      <strong>Real team. Real stats. Real pride.</strong>
-    </p>
+    <h1>CHICAGO<br>LIONS<span class="roar">FEAR THE ROAR</span></h1>
+    <p class="hero-desc">Chicago's premier cricket club. Competing in the 2026 Chicago Cup T20 every weekend at Prairie View. <strong>Real team. Real pride. Real Lions.</strong></p>
     <div class="hero-stats">
-      <div><div class="hst-n" id="heroW">–</div><div class="hst-l">Wins</div></div>
-      <div><div class="hst-n" id="heroL">–</div><div class="hst-l">Losses</div></div>
-      <div><div class="hst-n" id="heroPos">–</div><div class="hst-l">Position</div></div>
-      <div><div class="hst-n">T20</div><div class="hst-l">Format</div></div>
+      <div><div class="hs-n" id="hw">–</div><div class="hs-l">Wins</div></div>
+      <div><div class="hs-n" id="hl">–</div><div class="hs-l">Losses</div></div>
+      <div><div class="hs-n" id="hp">–</div><div class="hs-l">Position</div></div>
+      <div><div class="hs-n">T20</div><div class="hs-l">Format</div></div>
     </div>
     <div class="hero-btns">
-      <button class="hbtn hbtn-gold" onclick="scrollTo('scoresSection')">🔴 Live Scores</button>
-      <button class="hbtn hbtn-outline" onclick="scrollTo('squadSection')">View Squad</button>
+      <button class="btn btn-gold" onclick="goTo('scoresSection')">🔴 Live Scores</button>
+      <button class="btn btn-outline" onclick="goTo('squadSection')">View Squad</button>
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-bg-img"></div>
-    <div class="hero-bg-overlay"></div>
-    <div class="hero-live-card">
-      <div class="hlc-header">
-        <div class="hlc-live">
-          <div class="live-dot"></div>
-          <div class="live-label" id="liveLabel">Fetching...</div>
-        </div>
-        <div class="hlc-league">2026 Chicago Cup T20</div>
+    <div class="hero-img"></div>
+    <div class="hero-overlay"></div>
+    <div class="match-card">
+      <div class="mc-head">
+        <div class="mc-live"><div class="live-dot"></div><div class="live-lbl" id="mcLbl">Fetching...</div></div>
+        <div class="mc-league">CPCL · 2026</div>
       </div>
-      <div class="hlc-teams">
-        <div class="hlc-team">
-          <div class="hlc-tname">🦁 LIONS</div>
-          <div class="hlc-score" id="heroS1">–</div>
-          <div class="hlc-overs" id="heroO1"></div>
-        </div>
-        <div class="hlc-vs">VS</div>
-        <div class="hlc-team away">
-          <div class="hlc-tname" id="heroOpp">Loading</div>
-          <div class="hlc-score" id="heroS2">–</div>
-          <div class="hlc-overs" id="heroO2"></div>
-        </div>
+      <div class="mc-teams">
+        <div class="mc-team"><div class="mc-tname">🦁 LIONS</div><div class="mc-score" id="mcS1">–</div><div class="mc-overs" id="mcO1"></div></div>
+        <div class="mc-vs">VS</div>
+        <div class="mc-team away"><div class="mc-tname" id="mcOpp">–</div><div class="mc-score" id="mcS2">–</div><div class="mc-overs" id="mcO2"></div></div>
       </div>
-      <div class="hlc-status" id="heroMatchStatus">Checking CricClubs...</div>
-      <a class="hlc-link"
-         href="https://cricclubs.com/ChicagoPremierCricketLeague/teams/GvPcLwxO9pAFv86SMykwXQ?seriesId=Wqu2eyt-gsrtGXtmfhRfdA"
-         target="_blank">Full Scorecard on CricClubs →</a>
+      <div class="mc-status" id="mcStatus">Loading from CPCL...</div>
     </div>
   </div>
 </section>
 
 <div class="gold-band">
-  <div class="gb-headline">Chicago's Finest Cricket Club — Fear the Roar 🦁</div>
+  <div class="gb-hl">Chicago's Finest Cricket Club — Fear the Roar 🦁</div>
   <div class="gb-pills">
     <span class="gb-pill">🏆 2026 Chicago Cup T20</span>
-    <span class="gb-pill">📍 Prairie View, Chicagoland</span>
-    <span class="gb-pill">⚡ Live Scores on CricClubs</span>
+    <span class="gb-pill">📍 Prairie View · Chicagoland</span>
     <span class="gb-pill">🦁 Est. 2018</span>
+    <span class="gb-pill">⚡ Live Stats via CPCL</span>
   </div>
 </div>
 
 <section class="sec sec-dark" id="scoresSection">
   <div class="sec-head">
-    <div class="sec-kicker">2026 Chicago Cup T20 · Live from CricClubs</div>
+    <div class="kicker">2026 Chicago Cup T20 · Live Results</div>
     <div class="sec-title">Scores &amp; <em>Fixtures</em></div>
   </div>
-  <div class="loading-bar" id="scoresLoader"></div>
-  <div class="scores-wrap" id="scoresWrap">
+  <div class="loading-bar" id="scoresBar" style="display:none;margin-bottom:1.5rem;"></div>
+  <div class="scores-grid" id="scoresGrid">
     <div class="score-card">
-      <div class="sc-top">
-        <span class="sc-badge upcoming">Loading...</span>
-        <span class="sc-venue">Chicago Premier Cricket League</span>
-      </div>
+      <div class="sc-top"><span class="sc-badge upcoming">Loading...</span><span class="sc-venue">Chicago Premier Cricket League</span></div>
       <div class="sc-matchup">
-        <div class="sc-team"><div class="sc-tname lions-name">🦁 CHICAGO LIONS</div></div>
+        <div class="sc-team"><div class="sc-tname lions">🦁 CHICAGO LIONS</div><div class="sc-tscore shimmer" style="width:80px;height:32px;display:block;"></div></div>
         <div class="sc-vs">VS</div>
-        <div class="sc-team away"><div class="sc-tname skeleton" style="width:80px;height:16px;"></div></div>
+        <div class="sc-team away"><div class="sc-tname shimmer" style="width:100px;height:16px;margin-bottom:8px;display:block;"></div></div>
       </div>
-      <div class="sc-result neutral">Fetching latest from CricClubs...</div>
-      <a class="sc-fulllink"
-         href="https://cricclubs.com/ChicagoPremierCricketLeague/teams/GvPcLwxO9pAFv86SMykwXQ?seriesId=Wqu2eyt-gsrtGXtmfhRfdA&teamName=Chicago+Lions"
-         target="_blank">View on CricClubs →</a>
+      <div class="sc-result neutral">Fetching latest scores...</div>
     </div>
     <div class="score-card">
-      <div class="sc-top">
-        <span class="sc-badge upcoming">Upcoming</span>
-        <span class="sc-venue">Chicago Premier Cricket League</span>
-      </div>
+      <div class="sc-top"><span class="sc-badge upcoming">Upcoming</span><span class="sc-venue">Chicago Premier Cricket League</span></div>
       <div class="sc-matchup">
-        <div class="sc-team"><div class="sc-tname lions-name">🦁 CHICAGO LIONS</div></div>
+        <div class="sc-team"><div class="sc-tname lions">🦁 CHICAGO LIONS</div></div>
         <div class="sc-vs">VS</div>
         <div class="sc-team away"><div class="sc-tname">TBD</div></div>
       </div>
-      <div class="sc-result neutral">Full schedule on CricClubs →</div>
-      <a class="sc-fulllink" href="https://cricclubs.com/ChicagoPremierCricketLeague" target="_blank">Full Schedule →</a>
+      <div class="sc-result neutral">Full schedule loading...</div>
     </div>
-  </div>
-  <div style="margin-top:2rem; text-align:center;">
-    <a href="https://cricclubs.com/ChicagoPremierCricketLeague/teams/GvPcLwxO9pAFv86SMykwXQ?seriesId=Wqu2eyt-gsrtGXtmfhRfdA&teamName=Chicago+Lions&seriesName=2026+CHICAGO+CUP+T20"
-       target="_blank"
-       style="font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--border-hi);padding:12px 28px;display:inline-block;">
-      VIEW ALL MATCHES ON CRICCLUBS →
-    </a>
   </div>
 </section>
 
 <section class="sec sec-panel" id="squadSection">
   <div class="sec-head">
-    <div class="sec-kicker">2026 Season Roster · Direct from CricClubs</div>
+    <div class="kicker">2026 Season Roster</div>
     <div class="sec-title">The <em>Squad</em></div>
   </div>
-  <div class="loading-bar" id="squadLoader"></div>
-  <div class="squad-grid" id="squadGrid"></div>
-  <div style="margin-top:2rem;text-align:center;">
-    <a href="https://cricclubs.com/ChicagoPremierCricketLeague/teams/GvPcLwxO9pAFv86SMykwXQ?seriesId=Wqu2eyt-gsrtGXtmfhRfdA&teamName=Chicago+Lions"
-       target="_blank"
-       style="font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--border-hi);padding:12px 28px;display:inline-block;">
-      FULL SQUAD STATS ON CRICCLUBS →
-    </a>
+  <div class="loading-bar" id="squadBar" style="display:none;margin-bottom:1.5rem;"></div>
+  <div class="squad-grid" id="squadGrid">
+    <div style="grid-column:1/-1;padding:3rem;text-align:center;color:var(--muted);font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;font-size:0.8rem;">LOADING SQUAD FROM CPCL...</div>
   </div>
 </section>
 
 <section class="sec sec-dark" id="standingsSection">
   <div class="sec-head">
-    <div class="sec-kicker">2026 Chicago Cup T20</div>
+    <div class="kicker">2026 Chicago Cup T20</div>
     <div class="sec-title">League <em>Standings</em></div>
   </div>
-  <div class="loading-bar" id="standingsLoader"></div>
-  <table class="standings-table" id="standingsTable">
-    <thead>
-      <tr>
-        <th>#</th><th>Team</th><th>P</th><th>W</th><th>L</th><th>NR</th><th>PTS</th><th>NRR</th>
-      </tr>
-    </thead>
+  <div class="loading-bar" id="standingsBar" style="display:none;margin-bottom:1.5rem;"></div>
+  <table class="standings-table">
+    <thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>L</th><th>NR</th><th>PTS</th><th>NRR</th></tr></thead>
     <tbody id="standingsTbody">
-      <tr><td colspan="8" style="text-align:center;padding:2rem;color:var(--muted);font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;font-size:0.8rem;">LOADING STANDINGS FROM CRICCLUBS...</td></tr>
+      <tr><td colspan="8" style="text-align:center;padding:2rem;color:var(--muted);font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;font-size:0.8rem;">LOADING STANDINGS...</td></tr>
     </tbody>
   </table>
-  <div style="margin-top:2rem;text-align:center;">
-    <a href="https://cricclubs.com/ChicagoPremierCricketLeague"
-       target="_blank"
-       style="font-family:'Barlow Condensed',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--border-hi);padding:12px 28px;display:inline-block;">
-      FULL STANDINGS ON CRICCLUBS →
-    </a>
-  </div>
-</section>
-
-<section class="sec sec-black" id="liveSection">
-  <div class="sec-head">
-    <div class="sec-kicker">Live Data · Embedded Direct</div>
-    <div class="sec-title">CricClubs <em>Live</em></div>
-  </div>
-  <div class="embed-bar">
-    <div class="embed-bar-left">
-      <div class="live-dot"></div>
-      Live — Chicago Premier Cricket League
-    </div>
-    <div class="embed-bar-right">
-      <a href="https://cricclubs.com/ChicagoPremierCricketLeague/teams/GvPcLwxO9pAFv86SMykwXQ?seriesId=Wqu2eyt-gsrtGXtmfhRfdA&teamName=Chicago+Lions" target="_blank">Open Full Site ↗</a>
-    </div>
-  </div>
-  <iframe
-    class="cricclubs-embed"
-    src="https://cricclubs.com/ChicagoPremierCricketLeague/teams/GvPcLwxO9pAFv86SMykwXQ?seriesId=Wqu2eyt-gsrtGXtmfhRfdA&teamName=Chicago+Lions&seriesName=2026+CHICAGO+CUP+T20"
-    title="Chicago Lions — CricClubs Live"
-    loading="lazy"
-    sandbox="allow-same-origin allow-scripts allow-popups allow-forms">
-  </iframe>
 </section>
 
 <section class="sec sec-panel" id="feedSection">
   <div class="sec-head">
-    <div class="sec-kicker">Team Community</div>
+    <div class="kicker">Team Community</div>
     <div class="sec-title">Lions <em>Den</em></div>
   </div>
   <div class="feed-layout">
@@ -1462,54 +420,50 @@ footer {
         <div class="post-head">
           <div class="post-av">🦁</div>
           <div>
-            <div class="post-author">Chicago Lions CC <span class="post-badge">OFFICIAL</span></div>
-            <div class="post-meta">@chicagolionscc · 2h ago</div>
+            <div class="post-author">Chicago Lions CC <span class="p-badge">OFFICIAL</span></div>
+            <div class="post-meta">@chicagolionscc · Today</div>
           </div>
-          <div class="post-time">Today</div>
+          <div class="post-time">2h ago</div>
         </div>
-        <div class="post-body">
-          🏆 MATCHDAY — 2026 Chicago Cup T20 is underway. Lions are in action today at Prairie View. Come out and support your team! Full live scores at cricclubs.com <span class="tag">#ChicagoLions #FearTheRoar #CPCL2026</span>
-        </div>
+        <div class="post-body">🏆 MATCHDAY — 2026 Chicago Cup T20 is underway. Lions in action today at Prairie View. Come out and support! <span class="post-tag">#ChicagoLions #FearTheRoar #CPCL2026</span></div>
         <div class="post-img">🏟️</div>
         <div class="post-actions">
-          <button class="post-action" onclick="likePost(this)">❤️ <span>48</span></button>
-          <button class="post-action">💬 12</button>
-          <button class="post-action">↗ Share</button>
+          <button class="pact" onclick="likePost(this)">❤️ <span>48</span></button>
+          <button class="pact">💬 12</button>
+          <button class="pact">↗ Share</button>
         </div>
       </div>
       <div class="post">
         <div class="post-head">
           <div class="post-av">⚡</div>
           <div>
-            <div class="post-author">Team Captain</div>
-            <div class="post-meta">Chicago Lions · Captain/Owner</div>
+            <div class="post-author">Team Captain <span class="p-badge">CAPTAIN</span></div>
+            <div class="post-meta">Chicago Lions · Owner</div>
           </div>
           <div class="post-time">Yesterday</div>
         </div>
-        <div class="post-body">
-          Nets session done. Boys are sharp and ready. This weekend is ours. We've put in the work — now we go perform. Lions always bounce back. <span class="tag">#LionsPride #FearTheRoar</span>
-        </div>
+        <div class="post-body">Nets done. Boys are sharp. This weekend is ours. We've put in the work — now we perform. Lions always bounce back. <span class="post-tag">#LionsPride #FearTheRoar</span></div>
         <div class="post-actions">
-          <button class="post-action" onclick="likePost(this)">❤️ <span>31</span></button>
-          <button class="post-action">💬 8</button>
-          <button class="post-action">↗ Share</button>
+          <button class="pact" onclick="likePost(this)">❤️ <span>31</span></button>
+          <button class="pact">💬 8</button>
+          <button class="pact">↗ Share</button>
         </div>
       </div>
       <div class="post-compose">
-        <div class="compose-label">Post to Lions Den</div>
-        <textarea class="compose-input" id="composeText" placeholder="Share a match moment, training update, or shoutout..."></textarea>
-        <div class="compose-footer">
+        <div class="compose-lbl">Post to Lions Den</div>
+        <textarea class="compose-ta" id="composeText" placeholder="Share a match moment, training update, or shoutout..."></textarea>
+        <div class="compose-foot">
           <div class="compose-tools">
             <button class="compose-btn">📷 Photo</button>
             <button class="compose-btn">#️⃣ Tag</button>
           </div>
-          <button class="compose-submit" onclick="submitPost()">Post →</button>
+          <button class="compose-post" onclick="addPost()">Post →</button>
         </div>
       </div>
     </div>
     <div>
       <div class="sidebar-card">
-        <div class="sidebar-title">🔥 Trending</div>
+        <div class="sb-title">🔥 Trending</div>
         <span class="hashtag">#FearTheRoar</span>
         <span class="hashtag">#ChicagoLions</span>
         <span class="hashtag">#CPCL2026</span>
@@ -1518,100 +472,71 @@ footer {
         <span class="hashtag">#CricketChicago</span>
       </div>
       <div class="sidebar-card">
-        <div class="sidebar-title">📊 Top Run Scorers</div>
-        <div id="topBatters">
-          <div class="lb-row"><div class="lb-rank">1</div><div class="lb-name">Loading...</div><div class="lb-val">–</div></div>
-        </div>
+        <div class="sb-title">📊 Top Run Scorers</div>
+        <div id="topBat"><div class="lb-row"><div class="lb-name" style="color:var(--muted);">Loading from CPCL...</div></div></div>
       </div>
       <div class="sidebar-card">
-        <div class="sidebar-title">🎯 Top Wicket Takers</div>
-        <div id="topBowlers">
-          <div class="lb-row"><div class="lb-rank">1</div><div class="lb-name">Loading...</div><div class="lb-val">–</div></div>
-        </div>
+        <div class="sb-title">🎯 Top Wicket Takers</div>
+        <div id="topBowl"><div class="lb-row"><div class="lb-name" style="color:var(--muted);">Loading from CPCL...</div></div></div>
       </div>
       <div class="sidebar-card">
-        <div class="sidebar-title">🤝 Partners &amp; Sponsors</div>
-        <div style="font-size:0.78rem;color:var(--muted);line-height:1.8;">
-          Interested in partnering with Chicago Lions?<br>
-          <a href="mailto:info@chicagolions.cc" style="color:var(--gold);text-decoration:none;">Contact us →</a>
-        </div>
+        <div class="sb-title">🤝 Partners & Sponsors</div>
+        <div style="font-size:0.78rem;color:var(--muted);line-height:1.8;">Interested in partnering with Chicago Lions?<br>
+        <a href="mailto:info@chicagolions.cc" style="color:var(--gold);text-decoration:none;">Contact us →</a></div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="join-sec" id="joinSection">
-  <div class="sec-kicker" style="text-align:center;margin-bottom:1rem;">Chicago's Premier Cricket Club</div>
+  <div class="kicker" style="text-align:center;margin-bottom:1rem;">Chicago's Premier Cricket Club</div>
   <div class="sec-title" style="text-align:center;margin-bottom:1rem;">BECOME A <em>LION</em></div>
-  <p>Join Chicago's finest cricket club. Compete in the CPCL, track your stats on CricClubs, and be part of a club built for the long game.</p>
+  <p>Join Chicago's finest cricket club. Compete in the CPCL, build your stats, and be part of a club built for the long game.</p>
   <div class="join-btns">
-    <button class="jbtn-gold" onclick="openLogin()">Apply to Join</button>
-    <button class="jbtn-ghost" onclick="scrollTo('squadSection')">Meet the Squad</button>
+    <button class="btn-j-gold" onclick="openLogin()">Apply to Join</button>
+    <button class="btn-j-ghost" onclick="goTo('squadSection')">Meet the Squad</button>
+  </div>
+  <div class="sponsors-grid" style="max-width:800px;margin:3rem auto 0;">
+    <div class="sponsor-card"><div class="sponsor-icon">🤝</div><div class="sponsor-name">Your Brand Here</div><div class="sponsor-type">Kit Sponsor</div></div>
+    <div class="sponsor-card"><div class="sponsor-icon">📱</div><div class="sponsor-name">Your Brand Here</div><div class="sponsor-type">Digital Partner</div></div>
+    <div class="sponsor-card"><div class="sponsor-icon">🏏</div><div class="sponsor-name">Your Brand Here</div><div class="sponsor-type">Ground Sponsor</div></div>
+    <div class="sponsor-card" style="cursor:pointer;" onclick="window.location='mailto:info@chicagolions.cc'"><div class="sponsor-icon">➕</div><div class="sponsor-name">Partner With Us</div><div class="sponsor-type" style="color:var(--gold);">Get In Touch</div></div>
   </div>
 </section>
 
 </div>
 
-<div id="dashboardSection">
-  <div class="dash-header">
+<div id="dashSection">
+  <div class="dash-hdr">
     <div>
-      <div class="dash-welcome-name" id="dashName">🦁 Welcome, Captain</div>
-      <div class="dash-welcome-sub">Chicago Lions CC · 2026 Chicago Cup T20</div>
+      <div class="dash-name" id="dashName">🦁 Welcome, Captain</div>
+      <div class="dash-sub">Chicago Lions CC · 2026 Chicago Cup T20</div>
     </div>
-    <div class="dash-header-right">
-      <button class="dash-btn" onclick="scrollTo('feedSection');showMain()">Team Feed</button>
-      <button class="dash-btn" onclick="scrollTo('liveSection');showMain()">Live Scores</button>
+    <div class="dash-hdr-r">
+      <button class="dash-btn" onclick="goTo('feedSection');showMain()">Team Feed</button>
+      <button class="dash-btn" onclick="goTo('scoresSection');showMain()">Live Scores</button>
       <button class="dash-btn logout" onclick="doLogout()">Logout</button>
     </div>
   </div>
   <div class="dash-grid">
-    <div class="dash-stat-card">
-      <div class="dash-stat-label">Season Runs</div>
-      <div class="dash-stat-val" id="dRuns">–</div>
-      <div class="dash-stat-sub">2026 Chicago Cup T20</div>
+    <div class="dash-card"><div class="dc-label">Season Runs</div><div class="dc-val" id="dRuns">–</div><div class="dc-sub">2026 Chicago Cup T20</div></div>
+    <div class="dash-card"><div class="dc-label">Batting Avg</div><div class="dc-val" id="dAvg">–</div><div class="dc-sub">Current season</div></div>
+    <div class="dash-card"><div class="dc-label">Wickets</div><div class="dc-val" id="dWkts">–</div><div class="dc-sub">Economy: –</div></div>
+    <div class="dash-card"><div class="dc-label">Matches</div><div class="dc-val" id="dMat">–</div><div class="dc-sub" id="dRec">W– L–</div></div>
+    <div class="dash-card wide">
+      <div class="dc-label" style="margin-bottom:1rem;">Upcoming Fixtures</div>
+      <div id="dashFix"><div class="fixture-row"><div><div class="fix-vs">Loading fixtures...</div><div class="fix-date">Fetching from CPCL</div></div></div></div>
     </div>
-    <div class="dash-stat-card">
-      <div class="dash-stat-label">Batting Avg</div>
-      <div class="dash-stat-val" id="dAvg">–</div>
-      <div class="dash-stat-sub">Current season</div>
+    <div class="dash-card wide">
+      <div class="dc-label" style="margin-bottom:1rem;">Season Standings — Lions Position</div>
+      <div id="dashStand" style="font-size:0.9rem;color:var(--muted);">Loading...</div>
     </div>
-    <div class="dash-stat-card">
-      <div class="dash-stat-label">Wickets</div>
-      <div class="dash-stat-val" id="dWkts">–</div>
-      <div class="dash-stat-sub">Economy: –</div>
-    </div>
-    <div class="dash-stat-card">
-      <div class="dash-stat-label">Matches</div>
-      <div class="dash-stat-val" id="dMatches">–</div>
-      <div class="dash-stat-sub" id="dRecord">W– L–</div>
-    </div>
-    <div class="dash-stat-card wide">
-      <div class="dash-stat-label" style="margin-bottom:1rem;">Upcoming Fixtures</div>
-      <div id="dashFixtures">
-        <div class="dash-upcoming-item">
-          <div><div class="dui-match">Loading from CricClubs...</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="dash-stat-card wide">
-      <div class="dash-stat-label" style="margin-bottom:1rem;">Your CricClubs Profile</div>
-      <div style="font-size:0.85rem;color:var(--muted);line-height:1.8;margin-bottom:1rem;">
-        Your full stats, career history and match-by-match performance are live on CricClubs.
-      </div>
-      <a href="https://cricclubs.com/ChicagoPremierCricketLeague/teams/GvPcLwxO9pAFv86SMykwXQ?seriesId=Wqu2eyt-gsrtGXtmfhRfdA&teamName=Chicago+Lions"
-         target="_blank"
-         style="font-family:'Barlow Condensed',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--border-hi);padding:10px 20px;display:inline-block;">
-        VIEW MY STATS ON CRICCLUBS →
-      </a>
-    </div>
-    <div class="dash-stat-card full">
-      <div class="dash-stat-label" style="margin-bottom:1rem;">Recent Performances</div>
+    <div class="dash-card full">
+      <div class="dc-label" style="margin-bottom:1rem;">Recent Performances</div>
       <table class="perf-table">
-        <thead>
-          <tr><th>Date</th><th>Opposition</th><th>Runs</th><th>Balls</th><th>Wkts</th><th>Result</th></tr>
-        </thead>
-        <tbody id="perfTbody">
-          <tr><td colspan="6" style="text-align:center;padding:1.5rem;color:var(--muted);">See CricClubs for full match history</td></tr>
+        <thead><tr><th>Date</th><th>Opposition</th><th>Runs</th><th>Balls</th><th>Wkts</th><th>Result</th></tr></thead>
+        <tbody id="perfRows">
+          <tr><td colspan="6" style="text-align:center;padding:1.5rem;color:var(--muted);">Login to see your full performance history</td></tr>
         </tbody>
       </table>
     </div>
@@ -1619,324 +544,291 @@ footer {
 </div>
 
 <footer>
-  <div class="footer-brand">
-    Chicago Lions
-    <small>Cricket Club · Chicago Premier Cricket League</small>
-  </div>
-  <div class="footer-mid">
-    2026 Chicago Cup T20 · Prairie View, Chicagoland<br>
-    Live Stats: <a href="https://cricclubs.com/ChicagoPremierCricketLeague/teams/GvPcLwxO9pAFv86SMykwXQ?seriesId=Wqu2eyt-gsrtGXtmfhRfdA&teamName=Chicago+Lions" target="_blank" style="color:var(--gold);text-decoration:none;">cricclubs.com ↗</a>
-  </div>
-  <div class="footer-right">
-    © 2026 Chicago Lions CC<br>
-    <a href="https://chicagolions.github.io/chicago-lions/">chicagolions.github.io</a>
-  </div>
+  <div class="f-brand">Chicago Lions<small>Cricket Club · CPCL · Est. 2018</small></div>
+  <div class="f-mid">2026 Chicago Cup T20 · Prairie View, Chicagoland<br>Fear the Roar 🦁</div>
+  <div class="f-right">© 2026 Chicago Lions CC<br>chicagolions.github.io</div>
 </footer>
 
 <div id="loginModal">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeLogin()">✕</button>
+    <button class="modal-x" onclick="closeLogin()">✕</button>
     <div class="modal-logo">
-      <div class="modal-logo-icon">🦁</div>
-      <div class="modal-logo-name">LIONS PORTAL</div>
-      <div class="modal-logo-sub">Player & Staff Login</div>
+      <div class="modal-icon">🦁</div>
+      <div class="modal-title">LIONS PORTAL</div>
+      <div class="modal-sub">Player & Staff Login</div>
     </div>
     <div id="loginView">
       <div class="role-tabs">
-        <button class="role-tab active" onclick="setRole(this,'player')">Player</button>
-        <button class="role-tab" onclick="setRole(this,'staff')">Staff</button>
-        <button class="role-tab" onclick="setRole(this,'fan')">Fan</button>
+        <button class="rtab active" onclick="setRole(this)">Player</button>
+        <button class="rtab" onclick="setRole(this)">Staff</button>
+        <button class="rtab" onclick="setRole(this)">Fan</button>
       </div>
-      <div class="form-field"><label>Full Name</label><input type="text" id="loginName" placeholder="Your name"></div>
-      <div class="form-field"><label>Email</label><input type="email" id="loginEmail" placeholder="your@email.com"></div>
-      <div class="form-field"><label>Password</label><input type="password" id="loginPass" placeholder="••••••••"></div>
+      <div class="form-f"><label>Full Name</label><input type="text" id="loginName" placeholder="Your name"></div>
+      <div class="form-f"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="form-f"><label>Password</label><input type="password" placeholder="••••••••"></div>
       <button class="form-submit" onclick="doLogin()">Login to Lions Portal</button>
-      <div class="form-switch">New Lion? <span onclick="toggleLoginSignup()">Register here →</span></div>
+      <div class="form-switch">New Lion? <span onclick="toggleAuth()">Register here →</span></div>
     </div>
     <div id="signupView" style="display:none;">
-      <div class="form-field"><label>Full Name</label><input type="text" id="signupName" placeholder="Your full name"></div>
-      <div class="form-field"><label>Email</label><input type="email" id="signupEmail" placeholder="your@email.com"></div>
-      <div class="form-field"><label>Phone</label><input type="tel" placeholder="+1 (312) 000-0000"></div>
-      <div class="form-field">
-        <label>Playing Role</label>
+      <div class="form-f"><label>Full Name</label><input type="text" id="signupName" placeholder="Your full name"></div>
+      <div class="form-f"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <div class="form-f"><label>Phone</label><input type="tel" placeholder="+1 (312) 000-0000"></div>
+      <div class="form-f"><label>Playing Role</label>
         <select style="background:var(--card);border:1px solid var(--border);color:var(--white);width:100%;padding:11px 12px;font-family:'Barlow',sans-serif;">
-          <option>Batter</option><option>Bowler</option><option>All-Rounder</option>
-          <option>Wicketkeeper</option><option>Coach / Staff</option><option>Fan</option>
+          <option>Batter</option><option>Bowler</option><option>All-Rounder</option><option>Wicketkeeper</option><option>Coach / Staff</option><option>Fan / Supporter</option>
         </select>
       </div>
-      <div class="form-field"><label>Password</label><input type="password" placeholder="Create password"></div>
+      <div class="form-f"><label>Password</label><input type="password" placeholder="Create password"></div>
       <button class="form-submit" onclick="doLogin()">Create My Lions Account</button>
-      <div class="form-switch">Already a Lion? <span onclick="toggleLoginSignup()">Login →</span></div>
+      <div class="form-switch">Already a Lion? <span onclick="toggleAuth()">Login →</span></div>
     </div>
   </div>
 </div>
 
 <script>
-const TEAM_URL = 'https://cricclubs.com/ChicagoPremierCricketLeague/teams/GvPcLwxO9pAFv86SMykwXQ?seriesId=Wqu2eyt-gsrtGXtmfhRfdA&teamName=Chicago+Lions&seriesName=2026+CHICAGO+CUP+T20';
+const CPCL_BASE = 'https://cricclubs.com/ChicagoPremierCricketLeague/';
+const TEAM_ID   = 'GvPcLwxO9pAFv86SMykwXQ';
+const SERIES_ID = 'Wqu2eyt-gsrtGXtmfhRfdA';
+const LEAGUE_ID = '22794';
+const PROXY     = 'https://api.allorigins.win/get?url=';
+const COLORS    = ['#C9A84C','#8B6914','#A0782A','#7A5E1A','#D4AA60','#B08030','#C09040','#9A7020','#E0B850','#6A4A10'];
 
-async function fetchCricClubs(path) {
+async function cc(path) {
   try {
-    const target = encodeURIComponent('https://cricclubs.com/ChicagoPremierCricketLeague/' + path);
-    const res = await fetch(`https://api.allorigins.win/get?url=${target}`);
-    const json = await res.json();
-    return json.contents || '';
-  } catch(e) {
-    console.warn('CricClubs fetch failed:', e.message);
-    return '';
+    const r = await fetch(PROXY + encodeURIComponent(CPCL_BASE + path));
+    const j = await r.json();
+    return j.contents || '';
+  } catch(e) { return ''; }
+}
+
+function getPlayers(html) {
+  if (!html) return [];
+  const seen = new Set(), out = [];
+  for (const m of html.matchAll(/playerProfile\.do[^>]*>([^<]{2,40})<\/a>/g)) {
+    const n = m[1].trim();
+    if (n && !seen.has(n) && !/^\d/.test(n)) { seen.add(n); out.push(n); }
   }
+  return out.slice(0,22);
 }
 
-function parsePlayers(html) {
+function getBatting(html) {
   if (!html) return [];
-  const players = [];
-  const nameMatches = [...html.matchAll(/playerProfile\.do[^>]*>([^<]+)<\/a>/g)];
-  nameMatches.forEach((m, i) => {
-    const name = m[1].trim();
-    if (name && name.length > 2 && name.length < 50) {
-      players.push({ name, role: inferRole(name, i), initials: getInitials(name) });
-    }
-  });
-  return [...new Map(players.map(p => [p.name, p])).values()].slice(0, 20);
+  const out = [];
+  const block = html.match(/Most Runs[\s\S]{0,5000}?<\/table>/i);
+  if (!block) return [];
+  for (const m of block[0].matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)) {
+    const cells = [...m[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map(c=>c[1].replace(/<[^>]+>/g,'').trim());
+    if (cells.length>3 && cells[1] && cells[1].length>1 && isNaN(cells[0]))
+      out.push({name:cells[1],runs:cells[3]||'–',avg:cells[5]||'–'});
+  }
+  return out.slice(0,5);
 }
 
-function parseBatting(html) {
+function getBowling(html) {
   if (!html) return [];
-  const rows = [];
-  const tableMatch = html.match(/Most Runs[\s\S]*?<table[\s\S]*?<\/table>/i);
-  if (!tableMatch) return [];
-  const trMatches = [...tableMatch[0].matchAll(/<tr[\s\S]*?<\/tr>/gi)];
-  trMatches.slice(1, 6).forEach(tr => {
-    const tds = [...tr[0].matchAll(/<td[^>]*>[\s\S]*?<\/td>/gi)];
-    const cells = tds.map(td => td[0].replace(/<[^>]+>/g, '').trim());
-    if (cells.length >= 3 && cells[1]) {
-      rows.push({ name: cells[1], runs: cells[3] || '–', avg: cells[5] || '–' });
-    }
-  });
-  return rows;
+  const out = [];
+  const block = html.match(/Most Wickets[\s\S]{0,5000}?<\/table>/i);
+  if (!block) return [];
+  for (const m of block[0].matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)) {
+    const cells = [...m[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map(c=>c[1].replace(/<[^>]+>/g,'').trim());
+    if (cells.length>3 && cells[1] && cells[1].length>1 && isNaN(cells[0]))
+      out.push({name:cells[1],wkts:cells[3]||'–',econ:cells[6]||'–'});
+  }
+  return out.slice(0,5);
 }
 
-function parseBowling(html) {
+function getStandings(html) {
   if (!html) return [];
-  const rows = [];
-  const tableMatch = html.match(/Most Wickets[\s\S]*?<table[\s\S]*?<\/table>/i);
-  if (!tableMatch) return [];
-  const trMatches = [...tableMatch[0].matchAll(/<tr[\s\S]*?<\/tr>/gi)];
-  trMatches.slice(1, 6).forEach(tr => {
-    const tds = [...tr[0].matchAll(/<td[^>]*>[\s\S]*?<\/td>/gi)];
-    const cells = tds.map(td => td[0].replace(/<[^>]+>/g, '').trim());
-    if (cells.length >= 3 && cells[1]) {
-      rows.push({ name: cells[1], wkts: cells[3] || '–', econ: cells[6] || '–' });
-    }
-  });
-  return rows;
+  const out = [];
+  for (const m of html.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)) {
+    const cells = [...m[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map(c=>c[1].replace(/<[^>]+>/g,'').trim());
+    if (cells.length>=6 && cells[1] && !isNaN(cells[1]) && cells[0].length>0)
+      out.push({team:cells[0],p:cells[1],w:cells[2],l:cells[3],nr:cells[4],pts:cells[5],nrr:cells[6]||'0.000'});
+  }
+  return out.slice(0,12);
 }
 
-function parseStandings(html) {
+function getMatches(html) {
   if (!html) return [];
-  const rows = [];
-  const trMatches = [...html.matchAll(/<tr[^>]*>[\s\S]*?<\/tr>/gi)];
-  trMatches.forEach(tr => {
-    const tds = [...tr[0].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)];
-    const cells = tds.map(td => td[1].replace(/<[^>]+>/g, '').trim());
-    if (cells.length >= 6 && !isNaN(cells[1])) {
-      rows.push({ team: cells[0]||'–', p: cells[1]||'0', w: cells[2]||'0', l: cells[3]||'0', nr: cells[4]||'0', pts: cells[5]||'0', nrr: cells[6]||'0.000' });
-    }
-  });
-  return rows.slice(0, 12);
+  const out = [];
+  for (const m of html.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)) {
+    const cells = [...m[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map(c=>c[1].replace(/<[^>]+>/g,'').trim());
+    if (cells.length>=4 && cells[0].match(/\d{1,2}\/\d{1,2}\/\d{2,4}/))
+      out.push({date:cells[0],opp:cells[1]||'TBD',score1:cells[2]||'–',score2:cells[3]||'–',result:cells[4]||''});
+  }
+  return out.slice(0,6);
 }
 
-function getInitials(name) { return name.split(' ').map(p => p[0]).join('').toUpperCase().slice(0, 2); }
-function inferRole(name, i) {
-  const roles = ['All-Rounder','Batter','Fast Bowler','Spin Bowler','Wicketkeeper · Batter','Opening Batter','Middle Order','All-Rounder'];
-  return roles[i % roles.length];
-}
-const COLORS = ['#C9A84C','#8B6914','#A0782A','#7A5E1A','#D4AA60','#B08030','#C09040','#9A7020'];
+function initials(n){return n.split(' ').map(p=>p[0]||'').join('').toUpperCase().slice(0,2);}
+function role(i){return ['All-Rounder','Opening Batter','Fast Bowler','Spin Bowler','Wicketkeeper · Batter','Middle Order','All-Rounder','Batter','Fast Bowler','Spin Bowler','All-Rounder','Wicketkeeper'][i%12];}
 
-function renderSquad(players) {
-  const grid = document.getElementById('squadGrid');
-  if (!players.length) {
-    grid.innerHTML = `<div style="grid-column:1/-1;padding:3rem;text-align:center;color:var(--muted);font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;font-size:0.8rem;">
-      SQUAD LOADING FROM CRICCLUBS...<br><br>
-      <a href="${TEAM_URL}" target="_blank" style="color:var(--gold);text-decoration:none;border:1px solid var(--border-hi);padding:10px 20px;display:inline-block;margin-top:0.5rem;font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;">VIEW ON CRICCLUBS →</a>
-    </div>`;
+function renderSquad(names) {
+  const g = document.getElementById('squadGrid');
+  if (!names.length) {
+    g.innerHTML='<div style="grid-column:1/-1;padding:3rem;text-align:center;color:var(--muted);font-family:\'Barlow Condensed\',sans-serif;letter-spacing:2px;font-size:0.8rem;">SQUAD LOADING FROM CPCL...</div>';
     return;
   }
-  grid.innerHTML = players.map((p, i) => `
+  g.innerHTML = names.map((n,i)=>`
     <div class="player-card">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem;">
-        <div class="player-avatar" style="background:linear-gradient(135deg,${COLORS[i%COLORS.length]},#1A1200);">
-          ${p.initials}
-          ${i === 0 ? '<div class="player-cap-badge">C</div>' : ''}
+        <div class="player-av" style="background:linear-gradient(135deg,${COLORS[i%COLORS.length]},#100800);color:#F0C040;">
+          ${initials(n)}${i===0?'<div class="p-cap">C</div>':''}
         </div>
-        <div>
-          <div class="player-name">${p.name}</div>
-          <div class="player-role">${p.role}</div>
-        </div>
+        <div><div class="p-name">${n}</div><div class="p-role">${role(i)}</div></div>
       </div>
-      <div class="player-stats">
-        <div class="pstat"><div class="pstat-n">${p.runs||'–'}</div><div class="pstat-l">Runs</div></div>
-        <div class="pstat"><div class="pstat-n">${p.wkts||'–'}</div><div class="pstat-l">Wkts</div></div>
-        <div class="pstat"><div class="pstat-n">${p.mat||'–'}</div><div class="pstat-l">Mat</div></div>
+      <div class="p-stats">
+        <div class="pst"><div class="pst-n">–</div><div class="pst-l">Runs</div></div>
+        <div class="pst"><div class="pst-n">–</div><div class="pst-l">Wkts</div></div>
+        <div class="pst"><div class="pst-n">–</div><div class="pst-l">Mat</div></div>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 function renderStandings(rows) {
-  const tbody = document.getElementById('standingsTbody');
-  if (!rows.length) {
-    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:2rem;color:var(--muted);font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;font-size:0.8rem;">STANDINGS LOADING FROM CRICCLUBS...</td></tr>`;
-    return;
-  }
-  tbody.innerHTML = rows.map((r, i) => {
-    const isLions = r.team.toLowerCase().includes('lion');
-    const nrrNum = parseFloat(r.nrr) || 0;
-    return `<tr class="${isLions ? 'lions-row' : ''}">
+  const tb = document.getElementById('standingsTbody');
+  if (!rows.length) { tb.innerHTML='<tr><td colspan="8" style="text-align:center;padding:2rem;color:var(--muted);font-family:\'Barlow Condensed\',sans-serif;letter-spacing:2px;font-size:0.8rem;">STANDINGS LOADING...</td></tr>'; return; }
+  tb.innerHTML = rows.map((r,i)=>{
+    const isL=r.team.toLowerCase().includes('lion'), nrr=parseFloat(r.nrr)||0;
+    return `<tr class="${isL?'lions-row':''}">
       <td style="color:var(--muted);font-family:'Bebas Neue',sans-serif;font-size:1.1rem;">${i+1}</td>
-      <td><div class="team-cell-inner">
-        <div class="team-dot ${isLions ? 'lions' : ''}"></div>
-        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.95rem;">${r.team}</div>
-      </div></td>
+      <td><div class="t-cell"><div class="t-dot ${isL?'lions':''}"></div><span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;">${r.team}</span></div></td>
       <td>${r.p}</td><td>${r.w}</td><td>${r.l}</td><td>${r.nr}</td>
-      <td><span class="pts-val">${r.pts}</span></td>
-      <td><span class="nrr-val ${nrrNum>=0?'nrr-pos':'nrr-neg'}">${nrrNum>=0?'+':''}${r.nrr}</span></td>
+      <td><span class="pts-v">${r.pts}</span></td>
+      <td><span class="${nrr>=0?'nrr-pos':'nrr-neg'}">${nrr>=0?'+':''}${r.nrr}</span></td>
     </tr>`;
   }).join('');
-  const lions = rows.find(r => r.team.toLowerCase().includes('lion'));
+  const lions=rows.find(r=>r.team.toLowerCase().includes('lion'));
   if (lions) {
-    document.getElementById('heroW').textContent = lions.w;
-    document.getElementById('heroL').textContent = lions.l;
-    const pos = rows.findIndex(r => r.team.toLowerCase().includes('lion')) + 1;
-    document.getElementById('heroPos').textContent = pos || '–';
+    document.getElementById('hw').textContent=lions.w;
+    document.getElementById('hl').textContent=lions.l;
+    const pos=rows.findIndex(r=>r.team.toLowerCase().includes('lion'))+1;
+    document.getElementById('hp').textContent=pos?(pos+(pos===1?'st':pos===2?'nd':pos===3?'rd':'th')):'–';
+    document.getElementById('dashStand').innerHTML=`
+      <div style="display:flex;gap:2rem;flex-wrap:wrap;">
+        <div><div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);">${pos}${pos===1?'st':pos===2?'nd':pos===3?'rd':'th'}</div><div style="font-size:0.62rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;">Position</div></div>
+        <div><div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);">${lions.w}</div><div style="font-size:0.62rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;">Wins</div></div>
+        <div><div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);">${lions.l}</div><div style="font-size:0.62rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;">Losses</div></div>
+        <div><div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);">${lions.pts}</div><div style="font-size:0.62rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;">Points</div></div>
+        <div><div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:${parseFloat(lions.nrr)>=0?'#4CAF50':'#EF5350'};">${parseFloat(lions.nrr)>=0?'+':''}${lions.nrr}</div><div style="font-size:0.62rem;color:var(--muted);letter-spacing:2px;text-transform:uppercase;">NRR</div></div>
+      </div>`;
   }
 }
 
-function renderLeaderboards(batters, bowlers) {
-  document.getElementById('topBatters').innerHTML = batters.length
-    ? batters.map((b,i) => `<div class="lb-row"><div class="lb-rank">${i+1}</div><div class="lb-name">${b.name}</div><div class="lb-val">${b.runs}</div></div>`).join('')
-    : `<div class="lb-row"><div class="lb-name" style="color:var(--muted);">See CricClubs for stats</div></div>`;
-  document.getElementById('topBowlers').innerHTML = bowlers.length
-    ? bowlers.map((b,i) => `<div class="lb-row"><div class="lb-rank">${i+1}</div><div class="lb-name">${b.name}</div><div class="lb-val">${b.wkts} wk</div></div>`).join('')
-    : `<div class="lb-row"><div class="lb-name" style="color:var(--muted);">See CricClubs for stats</div></div>`;
-}
-
-function updateTicker(standings, batters) {
-  const items = ['🦁 CHICAGO LIONS CC','🏆 2026 CHICAGO CUP T20','📍 CHICAGO PREMIER CRICKET LEAGUE'];
-  if (standings.length) {
-    const lions = standings.find(r => r.team.toLowerCase().includes('lion'));
-    if (lions) {
-      const pos = standings.findIndex(r => r.team.toLowerCase().includes('lion')) + 1;
-      items.push(`📊 LIONS: W${lions.w} L${lions.l} · ${pos}${pos===1?'st':pos===2?'nd':pos===3?'rd':'th'} IN TABLE`);
-    }
-  }
-  if (batters.length) items.push(`🏏 TOP SCORER: ${batters[0].name.toUpperCase()} — ${batters[0].runs} RUNS`);
-  items.push('🦁 FEAR THE ROAR · CHICAGOLIONS.GITHUB.IO/CHICAGO-LIONS');
-  const doubled = [...items, ...items];
-  document.getElementById('ticker').innerHTML = doubled.map(t =>
-    `<span class="ticker-item">${t}</span><span class="ticker-item ticker-sep">·</span>`
-  ).join('');
-}
-
-async function loadData() {
-  try {
-    document.getElementById('squadLoader').style.display = 'block';
-    const teamHTML = await fetchCricClubs('teams/GvPcLwxO9pAFv86SMykwXQ?seriesId=Wqu2eyt-gsrtGXtmfhRfdA&teamName=Chicago+Lions&seriesName=2026+CHICAGO+CUP+T20');
-    renderSquad(parsePlayers(teamHTML));
-    document.getElementById('squadLoader').style.display = 'none';
-
-    document.getElementById('standingsLoader').style.display = 'block';
-    const pointsHTML = await fetchCricClubs('viewPointsTable.do?seriesId=Wqu2eyt-gsrtGXtmfhRfdA&league=22794');
-    const standings = parseStandings(pointsHTML);
-    renderStandings(standings);
-    document.getElementById('standingsLoader').style.display = 'none';
-
-    const battingHTML = await fetchCricClubs('playerBattingRecords.do?seriesId=Wqu2eyt-gsrtGXtmfhRfdA&clubId=GvPcLwxO9pAFv86SMykwXQ&league=22794');
-    const batters = parseBatting(battingHTML || teamHTML);
-    const bowlingHTML = await fetchCricClubs('playerBowlingRecords.do?seriesId=Wqu2eyt-gsrtGXtmfhRfdA&clubId=GvPcLwxO9pAFv86SMykwXQ&league=22794');
-    const bowlers = parseBowling(bowlingHTML || teamHTML);
-
-    renderLeaderboards(batters, bowlers);
-    updateTicker(standings, batters);
-    document.getElementById('liveLabel').textContent = 'LIVE · TODAY';
-    document.getElementById('heroOpp').textContent = 'OPPONENT';
-    document.getElementById('heroMatchStatus').textContent = 'View full scorecard on CricClubs →';
-  } catch(err) {
-    console.error('Data load error:', err);
-    renderSquad([]);
-    renderStandings([]);
-    renderLeaderboards([], []);
-  }
-}
-
-loadData();
-setInterval(loadData, 60000);
-
-function scrollTo(id) { showMain(); setTimeout(() => document.getElementById(id).scrollIntoView({ behavior: 'smooth' }), 100); }
-function showMain() {
-  document.getElementById('mainSite').style.display = 'block';
-  document.getElementById('dashboardSection').style.display = 'none';
-}
-function openLogin() { document.getElementById('loginModal').classList.add('open'); }
-function closeLogin() { document.getElementById('loginModal').classList.remove('open'); }
-document.getElementById('loginModal').addEventListener('click', e => {
-  if (e.target === document.getElementById('loginModal')) closeLogin();
-});
-function setRole(btn, role) {
-  document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-}
-function toggleLoginSignup() {
-  const lv = document.getElementById('loginView');
-  const sv = document.getElementById('signupView');
-  lv.style.display = lv.style.display === 'none' ? 'block' : 'none';
-  sv.style.display = sv.style.display === 'none' ? 'block' : 'none';
-}
-function doLogin() {
-  const name = document.getElementById('loginName')?.value ||
-               document.getElementById('signupName')?.value || 'Player';
-  closeLogin();
-  document.getElementById('mainSite').style.display = 'none';
-  document.getElementById('dashboardSection').style.display = 'block';
-  document.getElementById('dashName').textContent = `🦁 Welcome, ${name}`;
-  window.scrollTo(0, 0);
-  document.getElementById('dRuns').textContent = '–';
-  document.getElementById('dAvg').textContent = '–';
-  document.getElementById('dWkts').textContent = '–';
-  document.getElementById('dMatches').textContent = '–';
-  document.getElementById('dRecord').textContent = 'See CricClubs for your stats';
-  document.getElementById('dashFixtures').innerHTML = `
-    <div class="dash-upcoming-item">
-      <div><div class="dui-match">2026 Chicago Cup T20</div><div class="dui-date">Check CricClubs for next fixture</div></div>
-      <a href="${TEAM_URL}" target="_blank" class="dui-type" style="text-decoration:none;">CricClubs →</a>
-    </div>`;
-}
-function doLogout() { showMain(); window.scrollTo(0,0); }
-function likePost(btn) {
-  const span = btn.querySelector('span');
-  span.textContent = parseInt(span.textContent) + 1;
-  btn.style.color = '#E53935';
-}
-function submitPost() {
-  const text = document.getElementById('composeText').value.trim();
-  if (!text) return;
-  const feed = document.getElementById('feedPosts');
-  const post = document.createElement('div');
-  post.className = 'post';
-  post.innerHTML = `
-    <div class="post-head">
-      <div class="post-av">🦁</div>
-      <div>
-        <div class="post-author">You <span class="post-badge">PLAYER</span></div>
-        <div class="post-meta">Chicago Lions · Just now</div>
+function renderScores(matches) {
+  if (!matches.length) return;
+  const g = document.getElementById('scoresGrid');
+  g.innerHTML = matches.map(m=>{
+    const res=m.result.toLowerCase();
+    const cls=res.includes('won')||res.includes('win')?'win':res.includes('lost')||res.includes('loss')?'loss':'upcoming';
+    return `<div class="score-card ${cls}">
+      <div class="sc-top">
+        <span class="sc-badge ${cls}">${cls==='win'?'✅ WON':cls==='loss'?'❌ LOST':'📅 UPCOMING'}</span>
+        <span class="sc-venue">${m.date} · CPCL</span>
       </div>
-    </div>
-    <div class="post-body">${text}</div>
-    <div class="post-actions">
-      <button class="post-action" onclick="likePost(this)">❤️ <span>0</span></button>
-      <button class="post-action">💬 0</button>
+      <div class="sc-matchup">
+        <div class="sc-team"><div class="sc-tname lions">🦁 CHICAGO LIONS</div><div class="sc-tscore">${m.score1}</div></div>
+        <div class="sc-vs">VS</div>
+        <div class="sc-team away"><div class="sc-tname">${m.opp}</div><div class="sc-tscore">${m.score2}</div></div>
+      </div>
+      <div class="sc-result ${cls}">${m.result||'Result pending'}</div>
     </div>`;
-  feed.insertBefore(post, feed.querySelector('.post-compose'));
-  document.getElementById('composeText').value = '';
+  }).join('');
+}
+
+function renderLB(bat,bowl) {
+  document.getElementById('topBat').innerHTML=bat.length
+    ?bat.map((b,i)=>`<div class="lb-row"><div class="lb-rank">${i+1}</div><div class="lb-name">${b.name}</div><div class="lb-val">${b.runs}</div></div>`).join('')
+    :'<div class="lb-row"><div class="lb-name" style="color:var(--muted);">Stats loading...</div></div>';
+  document.getElementById('topBowl').innerHTML=bowl.length
+    ?bowl.map((b,i)=>`<div class="lb-row"><div class="lb-rank">${i+1}</div><div class="lb-name">${b.name}</div><div class="lb-val">${b.wkts} wk</div></div>`).join('')
+    :'<div class="lb-row"><div class="lb-name" style="color:var(--muted);">Stats loading...</div></div>';
+}
+
+function updateTicker(standings,bat,bowl) {
+  const items=['🦁 CHICAGO LIONS CRICKET CLUB','🏆 2026 CHICAGO CUP T20','📍 CHICAGO PREMIER CRICKET LEAGUE'];
+  const lions=standings.find(r=>r.team.toLowerCase().includes('lion'));
+  if (lions) {
+    const pos=standings.findIndex(r=>r.team.toLowerCase().includes('lion'))+1;
+    items.push(`📊 LIONS: W${lions.w} L${lions.l} · ${pos}${pos===1?'st':pos===2?'nd':pos===3?'rd':'th'} IN CPCL TABLE`);
+  }
+  if (bat.length) items.push(`🏏 TOP SCORER: ${bat[0].name.toUpperCase()} — ${bat[0].runs} RUNS`);
+  if (bowl.length) items.push(`🎯 TOP BOWLER: ${bowl[0].name.toUpperCase()} — ${bowl[0].wkts} WICKETS`);
+  items.push('🦁 FEAR THE ROAR · CHICAGOLIONS.GITHUB.IO');
+  const d=[...items,...items];
+  document.getElementById('ticker').innerHTML=d.map(t=>`<span class="tick-item">${t}</span><span class="tick-item tick-sep">·</span>`).join('');
+}
+
+function renderFixtures(matches) {
+  const upcoming=matches.filter(m=>!m.result||m.score1==='–');
+  const el=document.getElementById('dashFix');
+  if (!upcoming.length){el.innerHTML='<div class="fixture-row"><div><div class="fix-vs">Check CPCL for upcoming fixtures</div></div></div>';return;}
+  el.innerHTML=upcoming.slice(0,3).map(m=>`
+    <div class="fixture-row">
+      <div><div class="fix-vs">vs ${m.opp}</div><div class="fix-date">${m.date} · CPCL</div></div>
+      <span class="fix-type">LEAGUE</span>
+    </div>`).join('');
+}
+
+async function loadLiveData() {
+  ['scoresBar','squadBar','standingsBar'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display='block';});
+  try {
+    const teamHTML = await cc(`teams/${TEAM_ID}?seriesId=${SERIES_ID}&teamName=Chicago+Lions&seriesName=2026+CHICAGO+CUP+T20`);
+    const players=getPlayers(teamHTML), matches=getMatches(teamHTML);
+    renderSquad(players);
+    if(matches.length){renderScores(matches);renderFixtures(matches);}
+    document.getElementById('mcLbl').textContent=matches.length?'LATEST':'CPCL 2026';
+    document.getElementById('mcOpp').textContent=matches.length?matches[0].opp:'TBD';
+    document.getElementById('mcS1').textContent=matches.length?matches[0].score1:'–';
+    document.getElementById('mcS2').textContent=matches.length?matches[0].score2:'–';
+    document.getElementById('mcStatus').textContent=matches.length?(matches[0].result||'Match data loaded'):'See CPCL for latest';
+
+    const ptHTML=await cc(`viewPointsTable.do?seriesId=${SERIES_ID}&league=${LEAGUE_ID}`);
+    const standings=getStandings(ptHTML);
+    renderStandings(standings);
+
+    const batHTML=await cc(`playerBattingRecords.do?seriesId=${SERIES_ID}&clubId=${TEAM_ID}&league=${LEAGUE_ID}`);
+    const bat=getBatting(batHTML||teamHTML);
+    const bowlHTML=await cc(`playerBowlingRecords.do?seriesId=${SERIES_ID}&clubId=${TEAM_ID}&league=${LEAGUE_ID}`);
+    const bowl=getBowling(bowlHTML||teamHTML);
+    renderLB(bat,bowl);
+    updateTicker(standings,bat,bowl);
+  } catch(e){console.warn('Live data error:',e);}
+  ['scoresBar','squadBar','standingsBar'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display='none';});
+}
+
+loadLiveData();
+setInterval(loadLiveData,60000);
+
+function goTo(id){showMain();setTimeout(()=>document.getElementById(id)?.scrollIntoView({behavior:'smooth'}),100);}
+function showMain(){document.getElementById('mainSite').style.display='block';document.getElementById('dashSection').style.display='none';}
+function openLogin(){document.getElementById('loginModal').classList.add('open');}
+function closeLogin(){document.getElementById('loginModal').classList.remove('open');}
+document.getElementById('loginModal').addEventListener('click',e=>{if(e.target===document.getElementById('loginModal'))closeLogin();});
+function setRole(btn){document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');}
+function toggleAuth(){
+  const lv=document.getElementById('loginView'),sv=document.getElementById('signupView');
+  lv.style.display=lv.style.display==='none'?'block':'none';
+  sv.style.display=sv.style.display==='none'?'block':'none';
+}
+function doLogin(){
+  const name=document.getElementById('loginName')?.value||document.getElementById('signupName')?.value||'Player';
+  closeLogin();
+  document.getElementById('mainSite').style.display='none';
+  document.getElementById('dashSection').style.display='block';
+  document.getElementById('dashName').textContent=`🦁 Welcome, ${name}`;
+  window.scrollTo(0,0);
+}
+function doLogout(){showMain();window.scrollTo(0,0);}
+function likePost(btn){const s=btn.querySelector('span');s.textContent=parseInt(s.textContent)+1;btn.style.color='#E53935';}
+function addPost(){
+  const txt=document.getElementById('composeText').value.trim();
+  if(!txt)return;
+  const feed=document.getElementById('feedPosts');
+  const p=document.createElement('div');
+  p.className='post';
+  p.innerHTML=`<div class="post-head"><div class="post-av">🦁</div><div><div class="post-author">You <span class="p-badge">PLAYER</span></div><div class="post-meta">Chicago Lions · Just now</div></div></div><div class="post-body">${txt}</div><div class="post-actions"><button class="pact" onclick="likePost(this)">❤️ <span>0</span></button><button class="pact">💬 0</button></div>`;
+  feed.insertBefore(p,feed.querySelector('.post-compose'));
+  document.getElementById('composeText').value='';
 }
 </script>
 </body>
